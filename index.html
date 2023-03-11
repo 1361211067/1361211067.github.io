@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Website</title>
+    <link rel="stylesheet" href="./fontawesome-free-5.15.2-web/css/all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            color: #426696;
+            font-weight: 600;
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+        h2,p,li{
+            color: #658ec6;
+            opacity: 0.6;
+        }
+        h3{
+            color: #426696;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .con{
+            font-family: "Poppins,sans-serif";
+            height: 1000px;
+            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+            display: flex;
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+        .glass{
+            height: 600px;
+            background-color: #fff;
+            width: 60%;
+            margin:auto;
+            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+            /* 10px? */
+            border-radius: 1rem;
+            /* 默认为1 */
+            z-index: 2;
+            /* 模糊效果 */
+            backdrop-filter: blur(1rem);
+            display: flex;
+        }
+        .circle1,.circle2{
+            background: #fff;
+            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+            height: 14rem;
+            width: 14rem;
+            border-radius: 50%;
+            position: absolute;
+
+        }
+        .circle1{
+            top:15%;
+            right: 13%;
+        }
+        .circle2{
+            bottom: -15%;
+            left: 13%;
+        }
+
+        .dashboard{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+        }
+        .games{
+            flex:2;
+        }
+        .dashboard .user .user-img{
+            width: 120px;
+        }
+        .user-img img{
+            width: 100%;
+        }
+        .dashboard .user h3,.dashboard .user p{
+            text-align: center;
+        }
+        .links{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .link{
+            margin: 1rem;
+            padding: 10px;
+        }
+        .pro{
+            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+            border-radius: 20rem;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            color: #fff;
+        }
+        .pro h2{
+            margin-top: 10px;
+            margin-left: 4px;
+            font-size: medium;
+            color: #fff;
+        }
+        .pro #gamepad{
+            font-size: 60px;
+        }
+
+        .status input{
+            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+            border: none;
+            width: 50%;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .games{
+            margin: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .card{
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(to right bottom,rgba(255,255,255,0.2),rgba(255,255,255,0.8));
+            border-radius: 1rem;
+            margin: 2rem;
+            padding: 1.5rem;
+            box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+            transition: ease-in-out 2s;
+        }
+        .card:hover{
+            transform:scale(1.1);
+        }
+        .games img{
+            height: 60px;
+        }
+        .games h2{
+            font-size: small;
+        }
+        .games h1{
+            font-size: large;
+        }
+        .games p{
+            font-size: smaller;
+        }
+        .progress{
+            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+            width: 100%;
+            height: 25%;
+            border-radius: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+        .progress::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgb(236,236,236);
+            position: absolute;
+            left: 60%;
+            z-index: 1;
+        }
+        .card-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .percentage{
+            font-weight: bold;
+            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+            /* 渐变设置到文本 */
+            -webkit-background-clip: text;
+            /* 颜色过渡 */
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="glass">
+            <div class="dashboard">
+                <div class="user">
+                    <div class="user-img">
+                        <img src="../Liu.jpg" alt="">
+                    </div>
+                    <h3>Edir</h3>
+                    <p>Pro Member</p>
+                </div>
+                <ul class="links">
+                    <li class="link"><i class="fab fa-steam"> Steams</i></li>
+                    <li class="link"><i class="fab fa-twitch"> Game</i></li>
+                    <li class="link"><i class="fas fa-gamepad"> New</i></li>
+                    <li class="link"><i class="fas fa-book"> Library</i></li>
+                </ul>
+                <div class="pro">
+                    <h2>Join pro for free games</h2>
+                    <i class="fas fa-gamepad" id="gamepad"></i>
+                </div>
+            </div>
+            <div class="games">
+                <div class="status">
+                    <h1>Active Games</h1>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="./img/1.jpg" alt="">
+                        <div class="img-info">
+                            <h2>巫师3:狂猎</h2>
+                            <p>PS5 Version</p>
+                            <div class="progress"></div>
+                        </div>
+                        <div class="percentage">60%</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/2.jpg" alt="">
+                        <div class="img-info">
+                            <h2>割绳子</h2>
+                            <p>PE Version</p>
+                            <div class="progress"></div>
+                        </div>
+                        <div class="percentage">20%</div>
+                    </div>
+                    <div class="card">
+                        <img src="./img/3.jpg" alt="">
+                        <div class="img-info">
+                            <h2>双人成行</h2>
+                            <p>XBox Version</p>
+                            <div class="progress"></div>
+                        </div>
+                        <div class="percentage">90%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+</body>
+</html>
