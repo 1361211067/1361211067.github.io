@@ -1,254 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glass Website</title>
-    <link rel="stylesheet" href="./fontawesome-free-5.15.2-web/css/all.css">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{
-            color: #426696;
-            font-weight: 600;
-            font-size: 3rem;
-            opacity: 0.8;
-        }
-        h2,p,li{
-            color: #658ec6;
-            opacity: 0.6;
-        }
-        h3{
-            color: #426696;
-            font-weight: 400;
-            opacity: 0.8;
-        }
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-        .con{
-            font-family: "Poppins,sans-serif";
-            height: 1000px;
-            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-            display: flex;
-            /* align-items: center; */
-            /* justify-content: center; */
-        }
-        .glass{
-            height: 600px;
-            background-color: #fff;
-            width: 60%;
-            margin:auto;
-            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
-            /* 10px? */
-            border-radius: 1rem;
-            /* 默认为1 */
-            z-index: 2;
-            /* 模糊效果 */
-            backdrop-filter: blur(1rem);
-            display: flex;
-        }
-        .circle1,.circle2{
-            background: #fff;
-            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
-            height: 14rem;
-            width: 14rem;
-            border-radius: 50%;
-            position: absolute;
+    <title>个人主页</title>
 
-        }
-        .circle1{
-            top:15%;
-            right: 13%;
-        }
-        .circle2{
-            bottom: -15%;
-            left: 13%;
-        }
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
-        .dashboard{
-            flex:1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1rem;
-            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
-        }
-        .games{
-            flex:2;
-        }
-        .dashboard .user .user-img{
-            width: 120px;
-        }
-        .user-img img{
-            width: 100%;
-        }
-        .dashboard .user h3,.dashboard .user p{
-            text-align: center;
-        }
-        .links{
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .link{
-            margin: 1rem;
-            padding: 10px;
-        }
-        .pro{
-            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-            border-radius: 20rem;
-            margin: 10px;
-            padding: 10px;
-            display: flex;
-            color: #fff;
-        }
-        .pro h2{
-            margin-top: 10px;
-            margin-left: 4px;
-            font-size: medium;
-            color: #fff;
-        }
-        .pro #gamepad{
-            font-size: 60px;
-        }
 
-        .status input{
-            background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
-            border: none;
-            width: 50%;
-            padding: 0.5rem;
-            border-radius: 2rem;
-            margin-bottom: 2rem;
-        }
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
 
-        .games{
-            margin: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-        }
-        .card{
-            display: flex;
-            justify-content: space-between;
-            background: linear-gradient(to right bottom,rgba(255,255,255,0.2),rgba(255,255,255,0.8));
-            border-radius: 1rem;
-            margin: 2rem;
-            padding: 1.5rem;
-            box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
-            transition: ease-in-out 2s;
-        }
-        .card:hover{
-            transform:scale(1.1);
-        }
-        .games img{
-            height: 60px;
-        }
-        .games h2{
-            font-size: small;
-        }
-        .games h1{
-            font-size: large;
-        }
-        .games p{
-            font-size: smaller;
-        }
-        .progress{
-            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-            width: 100%;
-            height: 25%;
-            border-radius: 1rem;
-            z-index: 2;
-            position: relative;
-        }
-        .progress::after{
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: rgb(236,236,236);
-            position: absolute;
-            left: 60%;
-            z-index: 1;
-        }
-        .card-info{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .percentage{
-            font-weight: bold;
-            background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-            /* 渐变设置到文本 */
-            -webkit-background-clip: text;
-            /* 颜色过渡 */
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body>
-    <div class="con">
-        <div class="glass">
-            <div class="dashboard">
-                <div class="user">
-                    <div class="user-img">
-                        <img src="./img/i1.png" alt="">
-                    </div>
-                    <h3>Edir</h3>
-                    <p>Pro Member</p>
-                </div>
-                <ul class="links">
-                    <li class="link"><i class="fab fa-steam"> Steams</i></li>
-                    <li class="link"><i class="fab fa-twitch"> Game</i></li>
-                    <li class="link"><i class="fas fa-gamepad"> New</i></li>
-                    <li class="link"><i class="fas fa-book"> Library</i></li>
-                </ul>
-                <div class="pro">
-                    <h2>Join pro for free games</h2>
-                    <i class="fas fa-gamepad" id="gamepad"></i>
-                </div>
-            </div>
-            <div class="games">
-                <div class="status">
-                    <h1>Active Games</h1>
-                    <input type="text" name="" id="">
-                </div>
-                <div class="cards">
-                    <div class="card">
-                        <img src="./img/1.jpg" alt="">
-                        <div class="img-info">
-                            <h2>巫师3:狂猎</h2>
-                            <p>PS5 Version</p>
-                            <div class="progress"></div>
-                        </div>
-                        <div class="percentage">60%</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/2.jpg" alt="">
-                        <div class="img-info">
-                            <h2>割绳子</h2>
-                            <p>PE Version</p>
-                            <div class="progress"></div>
-                        </div>
-                        <div class="percentage">20%</div>
-                    </div>
-                    <div class="card">
-                        <img src="./img/3.jpg" alt="">
-                        <div class="img-info">
-                            <h2>双人成行</h2>
-                            <p>XBox Version</p>
-                            <div class="progress"></div>
-                        </div>
-                        <div class="percentage">90%</div>
-                    </div>
-                </div>
-            </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/hover.zoom.js"></script>
+    <script src="assets/js/hover.zoom.conf.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">首页</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">项目</a></li>
+            <li><a href="#">相关</a></li>
+            <li><a href="#">博客</a></li>
+            <li><a href="#">联系我</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-    <div class="circle1"></div>
-    <div class="circle2"></div>
-</body>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<img src="assets/img/user.png" width="250" class="userImg img-circle" alt="Stanley">
+					<h1>Hi, I am Ray Edir!</h1>
+					<p>Hello everybody. I'm Ray Edir, Welcome to my personal homepage.</p>
+					<p>Here are some of the projects I did while studying.</p>
+					<p class="lead">
+						欢迎来到我的主页，以下是我在学习中制作的一些项目!
+					  </p>
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	<div class="container pt">
+		<p class="h3">html+css阶段</p>
+		<div class="row mt centered">	
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port01.png" alt="" /></a>
+				<p>荒野大乱斗官网</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port02.png" alt="" /></a>
+				<p>仙剑7官网</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port03.gif" alt="" /></a>
+				<p>发光瓶子效果</p>
+			</div>
+		</div><!-- /row -->
+
+		<div class="row mt centered">	
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port03.png" alt="" /></a>
+				<p>冰墩墩</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port06.gif" alt="" /></a>
+				<p>3D旋转骰子</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port07.png" alt="" /></a>
+				<p>3D展开效果</p>
+			</div>
+		</div><!-- /row -->
+		<p class="h3">js && jQuery阶段</p>
+		<div class="row mt centered">	
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port04.png" alt="" /></a>
+				<p>模拟时钟组件</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port05.gif" alt="" /></a>
+				<p>向上滚动轮播图</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port08.gif" alt="" /></a>
+				<p>别踩白块！！！</p>
+			</div>
+		</div><!-- /row -->
+		<p class="h3">ajax && Boostrap阶段</p>
+		<div class="row mt centered">	
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port09.png" alt="" /></a>
+				<p>ajax获取微博热搜</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port10.png" alt="" /></a>
+				<p>Boostrap制作网页</p>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port11.png" alt="" /></a>
+				<p>Boostrap制作后台xx管理系统</p>
+			</div>
+		</div><!-- /row -->
+		<p class="h3">Echarts</p>
+		<div class="col-lg-4 col-md-6">
+			<a class="zoom blue" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port12.png" alt="" /></a>
+			<p>Echarts将数据可视化</p>
+		</div>
+	</div><!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>My eamil</h4>
+					<p>
+						1361211067@qq.com,<br/>
+						Ray_Edir@foxmail.com.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>My Links</h4>
+					<p>
+						<a href="https://gitee.com/ray_edir">gitee</a><br/>
+						<a href="#">Twitter</a><br/>
+						<a href="#">Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>About this</h4>
+					<p>This homepage was created to showcase some of my projects in a simple way. I hope you like it.</p>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
 </html>
