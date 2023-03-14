@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S15赛季挑战开始 - 荒野乱斗官方网站 - 腾讯游戏</title>
+    <!-- https://bs.qq.com/ -->
+        <link rel="stylesheet" href="./css/style.css">
+        <script>
+        window.onload = function () {
+            // 
+            var videoPlay = document.getElementById("videoPlay");
+            var video = document.getElementById("video");
+            var close = document.getElementById("close");
+            var noShowNav = document.getElementById("noShowNav");
+            var stickNav = document.getElementById("stickNav");
+            // 点击视频出现
+            videoPlay.onclick = function () {
+                video.style.display = 'block';
+                close.style.display = 'block';
+            }
+            // 点击关闭视频
+            close.onclick = function () {
+                video.style.display = 'none';
+                if (close.style.display != 'none') {
+                    close.style.display = 'none';
+                }
+            }
+            //点击开启关闭右侧框
+            noShowNav.onclick = function(){
+                if(getComputedStyle(stickNav,null).right=='40px'){
+                    // alert("是40");
+                    stickNav.style.right=-214+"px";
+                    // alert(noShowNav.innerText);
+                    noShowNav.innerText="展开";
+                }
+                else if(getComputedStyle(stickNav,null).right=='-214px'){
+                    // alert("是-214");
+                    stickNav.style.right=40+"px";
+                    // alert(noShowNav.innerText);
+                    noShowNav.innerText="收起";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 100%*42 -->
+    <div class="navTopBar">
+        <div class="navTop">
+            <div class="logoImg">
+                <img src="./imgs/logo.png" alt="">
+            </div>
+            <div id="rightItem">
+                <div><span id="grownLogo">成长守护平台</span></div>
+                <div class="navTopMenu">
+                    <div class="TopTitle"><span id="listIcon">腾讯游戏排行榜</span></div>
+                    <div class="topmenu">
+                        <ul>
+                            <li>
+                                <h3 id="listTitle1">新品端游排行榜</h3>
+                            </li>
+                            <li><img src="./imgs/yxlm.jpg" alt=""><span class="rank">1</span>
+                                <div class="aList"><a href="">进入官网</a></span><span><a href="">下载游戏</a></div>
+                            </li>
+                            <li>地下城与勇士<span class="rank">2</span></li>
+                            <li>FIFA Online 4<span class="rank">3</span></li>
+                            <li>NBA2K Online2<span class="rank nothot">4</span></li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h3 id="listTitle2">热门端游排行榜</h3>
+                            </li>
+                            <li><img src="./imgs/cf.jpg" alt=""><span class="rank">1</span>
+                                <div class="aList"><a href="">进入官网</a></span><span><a href="">下载游戏</a></div>
+                            </li>
+                            <li>英雄联盟<span class="rank">2</span></li>
+                            <li>地下城与勇士<span class="rank">3</span></li>
+                            <li>FIFA Online 4<span class="rank nothot">4</span></li>
+                            <li>NBA2K Online2<span class="rank nothot">5</span></li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h3 id="listTitle3">新品手游排行榜</h3>
+                            </li>
+                            <li><img src="./imgs/hpjy.jpg" alt=""><span class="rank">1</span>
+                                <div class="aList"><a href="">进入官网</a></span><span><a href="">下载游戏</a></div>
+                            </li>
+                            <li>QQ飞车手游<span class="rank">2</span></li>
+                            <li>妄想山海<span class="rank">3</span></li>
+                            <li>火影忍者手游<span class="rank nothot">4</span></li>
+                            <li>穿越火线：枪战王者<span class="rank nothot">5</span></li>
+                            <br>
+                            <li>
+                                <h3 id="listTitle4">热门手游排行榜</h3>
+                            </li>
+                            <li>王者荣耀<span class="rank">1</span></li>
+                            <li>和平精英<span class="rank">2</span></li>
+                            <li>妄想山海<span class="rank">3</span></li>
+                            <li>穿越火线：枪战王者<span class="rank nothot">4</span></li>
+                            <li>火影忍者手游<span class="rank nothot">5</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="stickNav" id="stickNav">
+            <a  href="javascript:;" id="noShowNav">收起</a>
+            <div class="imgBox"><img src="./imgs/ewm.png" class="logo" alt=""></div>
+            <div class="codeBtn">
+                <a href="javascript:;" class="weixinP"></a>
+                <a href="javascript:;" class="weixinV"></a>
+                <a href="javascript:;" class="weibo"></a>
+                <div class="showCode first">
+                    <span></span>
+                    <img src="./imgs/gzh.png" alt="">
+                </div>
+                <div class="showCode second">
+                    <span></span>
+                    <img src="./imgs/gzh.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <img src="./imgs/banner.jpg" alt="" class="bg">
+        <a href="https://bs.qq.com/cp/a20200515brawlstars/index.html" id="Toindex"><img src="./imgs/gw.png" alt=""></a>
+        <div class="videoBar">
+            <div class="clickToPlay"><span><img src="./imgs/video-play.png" id="videoPlay"><video controls="controls"
+                        preload="metadata" id="video" src="./imgs/video_360.mp4"></video></span><a class="close"
+                    id="close"><img src="./imgs/close.png" alt=""></a></div>
+            <a href="" class="download"><img src="./imgs/down.png" alt=""></a>
+        </div>
+    </div>
+    <div class="content">
+        <img src="./imgs/bg2.jpg" class="bg">
+        <div class="hero"></div>
+        <div class="hero_bg"></div>
+        <div class="btn">
+            <a href="javascript:;" class="ontext0 active" id="ontext0" onclick="changeMenu(0)"></a>
+            <a href="javascript:;" class="ontext1" id="ontext1" onclick="changeMenu(1)"></a>
+            <a href="javascript:;" class="ontext2" id="ontext2" onclick="changeMenu(2)"></a>
+        </div>
+        <div class="text0 show" id="text0"></div>
+        <div class="text1" id="text1"></div>
+        <div class="text2" id="text2"></div>
+        <a href="javascript:;" class="more"></a>
+    </div>
+    <!-- 
+Supercell
+腾讯客服
+荒野乱斗隐私保护指引
+儿童隐私保护指引
+未成年人守护
+第三方信息共享清单
+
+腾讯互动娱乐
+服务条款
+隐私保护指引
+儿童隐私保护指引
+腾讯游戏招聘
+腾讯游戏客服
+游戏列表
+广告服务及商务合作
+腾讯公司版权所有
+网络游戏行业防沉迷自律公约
+COPYRIGHT © 1998 - 2022 TENCENT. ALL RIGHTS RESERVED.
+
+本网络游戏适合12+岁的用户使用；为了您的健康，请合理控制游戏时间。
+深圳市市场监督管理局企业主体身份公示工商网监电子标识 |粤网文[2020]3396-195号|（署）网出证（粤）字第054号
+     -->
+    <div class="footer">
+        <div class="box2">
+            <ul>
+                <li><a href="javascript:;">Supercell</a></li>
+                <li><a href="javascript:;">腾讯客服</a></li>
+                <li><a href="javascript:;">荒野乱斗隐私保护指引</a></li>
+                <li><a href="javascript:;">儿童隐私保护指引</a></li>
+                <li><a href="javascript:;">未成年人守护</a></li>
+                <li><a href="javascript:;">第三方信息共享清单</a></li>
+            </ul>
+        </div>
+        <div class="copy">
+            <div class="imgList">
+                <a href="javascript:;"><img src="./imgs/foot-dark.png" alt=""></a>
+                <a href="javascript:;"><img src="./imgs/foot_logo.png" alt=""></a>
+            </div>
+            <div class="aCopy">
+                <p>
+                    <a href="javascript:;">腾讯互动娱乐</a> |
+                    <a href="javascript:;">服务条款</a> |
+                    <a href="javascript:;">隐私保护指引</a> |
+                    <a href="javascript:;">儿童隐私保护指引</a> |
+                    <a href="javascript:;">腾讯游戏招聘</a> |
+                    <a href="javascript:;">腾讯游戏客服</a> |
+                    <a href="javascript:;">游戏列表</a> |
+                    <a href="javascript:;">广告服务及商务合作</a> |
+                    <a href="javascript:;">腾讯公司版权所有</a> |
+                    <a href="javascript:;">网络游戏行业防沉迷自律公约</a><br>
+                    COPYRIGHT © 1998 - 2022 TENCENT. ALL RIGHTS RESERVED. <br>
+                    本网络游戏适合12+岁的用户使用；为了您的健康，请合理控制游戏时间。<br>
+                    深圳市市场监督管理局企业主体身份公示<br /><img src="./imgs/gswj.png" title="深圳市市场监督管理局企业主体身份公示">工商网监电子标识
+                    |粤网文[2020]3396-195号|（署）网出证（粤）字第054号
+                </p>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+        let ontext = [];
+        let text = [];
+                //批量将数据存到数组中
+                for(var i=0;i<3;i++){
+                    let temp = document.getElementById("ontext"+i);
+                    let temp1 = document.getElementById("text"+i);
+                    // alert(temp.className+"----"+temp1.className);
+                    ontext.push(temp);
+                    text.push(temp1);
+                }
+
+                let lastNum = ontext[0];
+                let lastName = text[0].className.substring(0,5);
+                let lastText = text[0];
+                function changeMenu(i) {
+                    
+                    if( 0==i && ontext[i].className.search('active')!=-1){
+                        //第一个按钮，亮着，还去按
+                        // alert("都亮了还按？");
+                        return
+                    }
+                    // 清除按钮0原本的样式
+                    ontext[0].className = ontext[0].className.substring(0,7);
+
+                    if(lastNum != ontext[i]){
+                        // 将上一个的变化还原
+                        lastNum.style.backgroundPositionY= 1+"px";
+                        lastText.setAttribute("class",lastName);
+                        // alert("ClassName是"+lastName);
+                        //切换
+                        ontext[i].style.backgroundPositionY= -58+"px";
+                        text[i].setAttribute("class","text"+i+" show");
+                        //存储这次的作为上一次
+                        lastNum = ontext[i];
+                        lastName = text[i].className.substring(0,5);
+                        lastText = text[i];
+                        // alert("现在ClassName是"+lastName);
+                        return;
+                    }else{
+                        // alert("亮了就别按了");
+                        return;
+                    }
+
+                }
+
+</script>
+
+</html>

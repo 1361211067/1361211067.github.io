@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dfe7ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    border-radius: 20px;
+    background-color: #eef3f7;
+    margin-top: 50px;
+    min-width: 400px;
+    min-height: initial;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0px 10px 40px 0px rgb(76 70 124 / 50%);
+
+    .topNav{
+        display: flex;
+        justify-content: flex-end;
+    .imgCade {
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 10px 40px 0px rgb(76 70 124 / 50%);
+        border-radius: 10px;
+        transition: all 0.1s 200ms linear;
+        &.playing{
+            border-radius: 50%;
+            box-shadow:none;
+            &:hover{
+                border-radius: 10px;
+            }
+        }
+        .oldImg{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 10px 40px 0px rgb(76 70 124 / 50%);
+            transition: all 1s linear;
+            cursor: pointer;
+            // transition: all 0.4s linear;
+            &.playing{
+                border-radius: 50%;
+                animation: getRotate 10s infinite linear backwards;
+                &:hover{
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    @keyframes getRotate {
+        0%{
+            transform: rotate(0);
+        }
+        50%{
+            transform: rotate(180deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+
+    .btnNav {
+        padding: 10px;
+        display: flex;
+        max-width: 80px;
+        flex-direction: column;
+
+        >.btn{
+            width: 60px;
+            height: 60px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            transition: all 0.3s;
+            transform: scale(1);
+            padding: 15px;
+            color: #acb8cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                font-size: 24px;
+                line-height: 24px;
+                cursor: pointer;
+                &.like{
+                    color: red;
+                }
+            }
+            &:hover {
+                background-color: #fff;
+                color: #532ab9;
+                box-shadow: 0 0 15px 0 #6d6b6b2e;
+                transform: scale(1.1);
+            }
+
+        }
+        .playBtn{
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border: 8px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 1px 7px 10px 0px #aeadad51 inset,
+            -4px 9px 6px 0px #aeadad51;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            &:hover{
+                transform: scale(1.1);
+            }
+            i{
+                color: #fff;
+                text-shadow: 2px 3px 6px #aeadad51;
+                font-size: 40px;
+                transition: all 0.5s ease-in-out;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    }
+    .row{
+        // margin-top: -40px;
+        .info{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            .songInfo{
+                .songName{
+                    color: #6d7b9a;
+                    font-weight: bolder;
+                    font-size: 18px;
+                    margin-top: -25px;
+                    margin-bottom: 9px;
+                }
+                .author{
+                    color: #9aa7bb;
+                    margin:9px auto;
+                }
+            }
+            .songTime{
+                color: #b0bbcb;
+                font-weight: bolder;
+            }
+        }
+        .range{
+            display: flex;
+            flex-direction: column;
+            // label{
+                input{
+                    width: 100%;
+                    display: none;
+                }
+                .rangeBox{
+                    height: 5px;
+                    border-radius: 2px;
+                    background-color: #d0d8e6;
+                    width: 100%;
+                    cursor: pointer;
+                    .nowRange{
+                        border-radius: 2px;
+                        height: 100%;
+                        background-color: #a3b3ce;
+                        width: 0%;
+                    }
+                }
+            // }
+            .nowTime{
+                color: #9aa7bb;
+            }
+        }
+    }
+}

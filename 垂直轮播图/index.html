@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            vertical-align: bottom;
+            list-style: none;
+        }
+        .box{
+            width: 963px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 2px 2px 15px #7a787844;
+            margin: 0 auto;
+            margin-top: 40px;
+            height: 560px;
+            padding: 10px;
+            display: flex;
+        }
+        .box .imgConntent {
+            overflow: hidden;
+            width: 741px;
+            height: 532px;
+        }
+        .box .imgConntent ul{
+            width: 741px;
+            margin-top: 0px;
+        }
+        .box .imgConntent img{
+            border-radius: 5px;
+            width: 741px;
+            height: 532px;
+        }
+        .box .imgList{
+            margin-left: 35px;
+            width: 147px;
+            height: 532px;
+        }
+        .box .imgList ul{
+            margin-top: -87px;
+            display: flex;
+            height: 532px;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .box .imgList .mask{
+            position: relative;
+            top: 0px;
+            width: 147px;
+            height: 79px;
+            border: 4px #a43b00 solid;
+            border-radius: 4px;
+            z-index: 9;
+        }
+        .box .imgList .mask::after{
+            position: absolute;
+            top: 33px;
+            left: -15px;
+            content: "";
+            border: 6px transparent solid;
+            border-right: 6px #a43b00 solid;
+        }
+        
+        .box .imgList li{
+            position: relative;
+            width: 147px;
+            border: transparent 4px solid;
+            cursor: pointer;
+        }
+        .box .imgList li img{
+            width: 147px;
+            height: 79px;
+        }
+    </style>
+    <script src="./js/animate.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imgConntent">
+            <ul>
+                <li><img src="./images/t1.png" alt=""></li>
+                <li><img src="./images/t2.png" alt=""></li>
+                <li><img src="./images/t3.png" alt=""></li>
+                <li><img src="./images/t4.png" alt=""></li>
+                <li><img src="./images/t5.png" alt=""></li>
+            </ul>
+
+        </div>
+        <div class="imgList">
+            <div class="mask">
+            </div>
+            <ul>
+                <li>
+                    <img src="./images/t1.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/t2.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/t3.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/t4.png" alt="">
+                </li>
+                <li>
+                    <img src="./images/t5.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+       //垂直轮播图
+       //获取所有大图片
+       var contentImgList = document.querySelectorAll(".imgConntent ul li");
+       var contentImgUl = document.querySelector(".imgConntent ul");
+       var imgList = document.querySelectorAll(".imgList ul li");
+       var mask =document.querySelector(".imgList .mask");
+       //获取mask移动高度
+       var  height = mask.offsetTop;
+       //获取大图高度
+       var BigImgHeight = parseFloat(window.getComputedStyle(contentImgList[0]).height);
+
+       //默认高亮
+       for(var j=0;j<imgList.length;j++){
+            imgList[j].style.opacity=0.6;
+        }
+        imgList[0].style.opacity=1;
+
+       //循环绑定事件
+       for(var i=0;i<imgList.length;i++){
+        //自定义属性
+        imgList[i].dataset.index = i;
+        //绑定点击事件
+         imgList[i].onclick = function(){
+            //mask移动
+            animate(mask,{top:this.offsetTop-height});
+            //排他
+            for(var j=0;j<imgList.length;j++){
+                imgList[j].style.opacity=0.6;
+            }
+            //获取当前移动下标
+            var index = parseInt(this.dataset.index);
+            //添加高亮
+            imgList[index].style.opacity=1;
+            // console.log(index);
+            //移动大图
+            animate(contentImgUl,{marginTop:-index*BigImgHeight});
+         }
+       }
+
+    </script>
+</body>
+
+</html>

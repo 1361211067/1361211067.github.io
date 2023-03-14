@@ -1,0 +1,1107 @@
+        /* 去掉图片底部缝隙 */
+        img {
+            vertical-align: bottom;
+        }
+
+        /* 版心类 */
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 清除浮动类 */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 全部超链接样式 */
+        a {
+            text-decoration: none;
+            color: #778695;
+        }
+
+        body {
+            background: #c0e0ea;
+        }
+
+        /* 顶部导航栏样式开始 */
+        .top {
+            background-color: #f5f5f5;
+            min-width: 1300px;
+            position: relative;
+            z-index: 4;
+        }
+
+        .topBar {
+            display: flex;
+            height: 50px;
+            line-height: 50px;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+
+        .topBar .logo img {
+            vertical-align: middle;
+            margin-bottom: 4px;
+        }
+
+        .topBar .logo span {
+            font-size: 14px;
+            color: #29b6f6;
+            margin-left: -18px;
+        }
+
+        .topBar .topMenu>ul {
+            position: relative;
+            display: flex;
+            margin-right: 10px;
+        }
+
+        /* 小三角 */
+        .topBar .topMenu ul .arr {
+            position: absolute;
+            top: 26px;
+            right: 9px;
+            border: solid 4px transparent;
+            border-top: #778695 4px solid;
+        }
+
+        .topBar .topMenu>ul>li a {
+            padding: 0 8px;
+            border-left: 1px solid #e6e6e6;
+        }
+
+        .topBar .topMenu>ul>li:first-child a {
+            border: none;
+        }
+
+        .topBar .topMenu ul li a:hover {
+            color: #29b6f6;
+        }
+
+        .topBar .topMenu>ul>li:last-of-type {
+            padding-right: 13px;
+        }
+
+        .topBar .topMenu>ul>li:last-of-type:hover {
+            box-shadow: 0px -2px 4px #6b6b6bb4;
+        }
+
+
+        /* 下拉菜单样式 */
+        .topBar .topMenu ul .topGaemMenu {
+            position: absolute;
+            top: 50px;
+            right: -1px;
+            width: 289px;
+            height: 190px;
+            background-color: rgb(245, 245, 245);
+            display: none;
+            transition: 0.5s ease-out;
+            opacity: 0;
+            box-shadow: 1px 1px 5px #6b6b6bb4;
+            z-index: 9;
+        }
+
+        .topBar .topMenu ul .topGaemMenu ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .topBar .topMenu ul .topGaemMenu li {
+            width: 130px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .topBar .topMenu ul li:last-of-type:hover~.arr {
+            top: 20px;
+            border: solid 4px transparent;
+            border-bottom: #778695 4px solid;
+        }
+
+        .topBar .topMenu ul li:last-of-type:hover~.topGaemMenu,
+        .topBar .topMenu ul .topGaemMenu:hover {
+            display: block;
+            opacity: 1;
+        }
+
+        /* 顶部导航栏样式结束 */
+
+        /* 右上的菜单样式开始 */
+        /* 背景 */
+        .mainContainer{
+            position: relative;
+            height: auto;
+            width: 1510px;
+        }
+
+        .helpMenu {
+            background: url(../imgs/homeBj.png) no-repeat;
+            width: 797px;
+            height: 39px;
+            position: absolute;
+            right: 170px;
+            z-index: 2;
+        }
+
+        .helpMenu>ul {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 10px;
+        }
+
+        .helpMenu>ul li a {
+            font-size: 14px;
+            font-family: arial, "Microsoft YaHei", "微软雅黑";
+            display: block;
+            color: aliceblue;
+            text-shadow: 0px 0px 4px aliceblue, 3px 0px 1px rgb(98 153 153);
+            width: 87px;
+            height: 39px;
+            line-height: 39px;
+        }
+
+        /* 右上的菜单样式结束 */
+
+        /*  右上角的音乐按钮样式开始 */
+        .musicBtn {
+            z-index: 2;
+            background: url(../imgs/mbj.png) no-repeat;
+            width: 38px;
+            height: 38px;
+            background-size: 100%;
+            position: absolute;
+            right: 166px;
+            top: 51px;
+        }
+        .musicBtn a{
+            display: block;
+        }
+        .play{
+            animation: run 30s infinite;
+        }
+        .pause::before{
+            content: '';
+            width: 1px;
+            height: 30px;
+            background: #fff;
+            position: absolute;
+            top: 3px;
+            right: 18px;
+            transform: rotateZ(45deg);
+        }
+        /* 音符 */
+        .musicBtn img {
+            width: 38px;
+        }
+
+        /*  右上角的音乐按钮样式结束 */
+
+        /* 背景样式开始 */
+        .backGround {
+            width: 100%;
+            height: 1904px;
+            background: url(../imgs/DownBj.jpg)no-repeat top center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        .bgCon{
+            height: 1904px;
+            position: relative;
+        }
+        /* 立绘前的飘带样式 */
+        .floatBg {
+            width: 100%;
+            height: 1767px;
+            background: url(../imgs/FloatBj_01.png) no-repeat;
+            position: absolute;
+            top: 400px;
+            left: 0;
+            z-index: 1;
+            /* display: none; */
+        }
+        /* 人物立绘 */
+        .bgHero {
+            background: url(../imgs/npc3.png) no-repeat;
+            max-width: 1200px;
+            overflow: hidden;
+            width: 1200px;
+            margin: 0 auto;
+            position: absolute;
+            top: -23px;
+            left: 14%;
+            transform: translateX(-50%);
+            z-index: 1;
+            min-height: 1520px;
+        }
+
+        /* 文字 */
+        .innerLogo img {
+            position: absolute;
+            right: 193px;
+            top: 120px;
+        }
+        /* 第九部作品（字） */
+        .innerLogo #sloganText {
+            right: 257px;
+            top: 234px;
+        }
+        /* 正式上市（字） */
+        .innerLogo #slogan {
+            right: 91px;
+            top: 301px;
+            z-index: 2;
+        }
+
+        /* 视频 */
+        .videoBar{
+            position: absolute;
+            right: 295px;
+            top: 498px;
+            z-index: 10;
+        }
+        .videoNav{
+            width: 83px;
+            height: 78px;
+            cursor: pointer;
+            transition: .7s;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .playVideoBg{
+            cursor: pointer;  
+            background: url(../imgs/play.png)no-repeat;
+            width: 83px;
+            height: 78px;
+            transition: .7s;
+            animation: run 10s infinite;
+        }
+        #palyBtn{
+            cursor: pointer;  
+            position: absolute;
+            z-index: 0;
+            width: 54px;
+            height: 56px;
+        }
+        /* 扩大 */
+        .videoNav:hover{
+            transform: scale(1.25);
+        }
+        /* 旋转动画 */
+        @keyframes run {
+        from{
+            transform: rotateZ(0);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+        /* 视频主体样式开始 */
+        .videoCon{
+            position: absolute;
+            top: -17px;
+            left: -730px;
+        }
+        .videoCon .close{
+            display: block;
+            position: absolute;
+            top: -20px;
+            left: 1100px;
+            width: 36px;
+            height: 36px;
+            z-index: 11;
+            display: none;
+        }
+        .videoCon video{
+            z-index: 11;
+            display: none;
+            width: 1065px;
+            height: 600px;
+        }
+        /* 视频主体样式结束 */
+
+        /* 主体框样式开始 */
+        .pal7Main{
+            position: absolute;
+            top: 631px;
+            right: 160px;
+            z-index: 9;
+        }
+        .gameMain{
+            width: 640px;
+            background-color: #284f68;
+            float: right;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .gameMenuBackGround{
+            width: 100%;
+            position: relative;
+            padding: 20px 0;
+        }
+        .gameMenuBackGround .menuTop,.gameMenuBackGround .menuBottom{
+            width: 621px;
+            height: 23px;
+            background: url(../imgs/bline_top.png) top center;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+        }
+        .gameMenuBackGround .menuTop{
+            top: 0;
+        }
+        .gameMenuBackGround .menuBottom{
+            background: url(../imgs/bline_bot.png) top center;
+            bottom: 1px;
+        }
+        .gameMenuBackGround .menuCon{
+            background-color: #285b7b;
+            width: 100%;
+            min-height: 500px;
+            border: 3px solid #ffe3a0;
+            border-top:none;
+            border-bottom:none;
+            padding: 0 15px;
+            box-sizing: border-box;
+
+        }
+        /* 表格内容样式开始 */
+        .menuCon .gameDivBar{
+            display: flex;
+            justify-content: space-evenly;
+        } 
+        .gameDiv1,.gameDiv2,.gameDiv3{
+            color: #fff;
+            display: flex;
+            flex-direction:column;
+            width: 185px;
+            height: 95px;
+            text-align: center;
+            justify-content: center;
+            transition: .5s;
+        }
+        .gameDivBar a h3{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .gameDivBar a p{
+            font-size: 14px;
+            margin: 10px auto;
+        }
+        .gameDiv1{
+            background: url(../imgs/tab1.png) no-repeat;
+        }
+        .gameDiv2{
+            background: url(../imgs/tab2.png) no-repeat;
+        }
+        .gameDiv3{
+            background: url(../imgs/tab3.png) no-repeat;
+        }
+        .gameDivBar a:hover{
+            filter: brightness(1.1);
+        }
+        .gameList{
+            display: flex;
+            justify-content: center;
+        }
+        .gameList ul{
+            display: flex;
+            flex-wrap: wrap;
+            width: 570px;
+            margin: 10px auto 20px;
+            background-color: #296285;
+            overflow: hidden;
+            padding: 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        .gameList ul li a{
+            color: #d6edff;
+            width: 90px;
+            height: 20px;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            border-right: #397295 2px solid;
+        }
+        .gameList ul li a:hover{
+            color: #ffe3a0;
+        }
+        .gameList ul li:nth-of-type(6) a,.gameList ul li:nth-of-type(10) a{
+            border: none;
+        }
+        .gameList ul li:first-of-type a,.gameList ul li:nth-of-type(5) a{
+            color: #ffe3a0;
+        }
+
+        /* 轮播图样式开始 */
+        .carouselBar{
+            width: 575px;
+            height: 230px;
+            position: relative;
+            display: flex;
+        }
+        .carouselBar img{
+            position: absolute;
+            width: 575px;
+            display: none;
+        }
+        .carouselBar .active img{
+            display: block;
+        }
+        .carouselBar #arrL,.carouselBar #arrR{
+            position: absolute;
+            top: 50%;
+            margin-top: -16px;
+            width: 32px;
+            height: 32px;
+            display:none;
+            background: url(../imgs/direction2.png) no-repeat;
+        }
+        .carouselBar:hover #arrL,.carouselBar:hover #arrR{
+            display: block;
+        }
+        .carouselBar #arrL:hover,.carouselBar #arrR:hover{
+            filter: brightness(1.1);
+        }
+        .carouselBar #arrL{
+            left: 18px;
+        }
+        .carouselBar #arrR{
+            background: url(../imgs/direction2.png) -32px 0 no-repeat;
+            right: 18px;
+        }
+        .dotNav{
+            position: absolute;
+            bottom: 15px;
+            right: 12px;
+        }
+        .dotNav a{
+            width: 8px;
+            height: 8px;
+            margin: 0 4px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 10px rgb(0 0 0 /10%);
+            float: left;
+            display: block;
+        }
+        .dotNav a.clicked{
+            width: 16px;
+            border-radius: 35%;
+            background-color: #ffc561;
+        }
+        /* 轮播图样式结束 */
+        /* 表格内容样式结束 */
+
+        /* 新闻栏目样式开始 */
+        .newsNav{
+            margin-top: 5px;
+        }
+        .newsNav .newsNavTop{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #51728c;
+            align-items: center;
+        }
+        .newsNavTop h3{
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 25px;
+            color: #fff;
+        }
+        .newsNavTop .more{
+            font-size: 30px;
+            color: #8caec9;
+            transform: rotateZ(45deg);
+        }
+        .newsNavTop .more:hover{
+            color: #ffc561;
+        }
+        .newsNav ul li p{
+            color: #d6edff;
+        }
+        .newsNav ul li a{
+            display: block;
+            float: left;
+            width: 532px;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #d6edff;
+        }
+        .newsNav ul{
+            margin-top: 14px;
+        }
+        .newsNav ul li{
+            height: 30px;
+        }
+        .newsNav ul li:hover a,.newsNav ul li:hover p{
+            color: #ffe3a0;
+        }
+        /* 新闻栏目样式结束 */
+        /* 主体框样式结束 */
+
+        /* 福袋抽奖样式开始 */
+        .luckBagNav{
+            position:relative;
+            /* background-color: #29b6f6; */
+            width: 1510px;
+            height: 1000px;
+            margin-top:-500px;
+            z-index: 999;
+        }
+        .conTitle{
+            left: 50%;
+            margin-left: -550px;
+            position: absolute;
+            /* top: 1415px; */
+            width: 1100px;
+            height: 84px;
+            display: flex;
+            justify-content: center;
+        }
+        .conTitle img{
+            width: 580px;
+        }
+        .bagConNav{
+            position: absolute;
+            top: 106px;
+            width: 1180px;
+            left: 50%;
+            margin-left: -590px;
+        }
+        .bagConNav .bagCon p{
+            text-align: center;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #284F68;
+        }
+        .bagCon .bagImg{
+            margin-top: 24px;
+            margin-left: 30px;
+            width: 1120px;
+            height: 559px;
+            position: relative;
+        }
+        .bagImg #bagBtn{
+            width: 271px;
+            height: 106px;
+            position: absolute;
+            bottom: -13px;
+            left: 38%;
+            background: url(../imgs/advanceButton.png) no-repeat;
+        }
+        .bagImg #bagBtn:hover{
+            background: url(../imgs/advanceButtonH.png) no-repeat;
+        }
+
+        /* 福袋抽奖样式结束 */
+
+        /* 人物介绍模块样式开始 */
+        /* 背景 */
+        .wrapperMode{
+            width: 100%;
+            height: 1313px;
+            background: url(../imgs/wmode3.jpg) no-repeat top center;
+            margin-top: 55px;
+            position: absolute;
+            top: 2111px;
+        }
+        .heroInfoBar{
+            width: 100%;
+            height: 630px;
+            display: flex;
+            position: relative;
+        }
+        .heroTitleBar{
+            left: 50%;
+            margin-left: -550px;
+            position: absolute;
+            width: 1100px;
+            height: 84px;
+            display: flex;
+            justify-content: center;
+        }
+        .heroTitleBar img{
+            width: 580px;
+        }
+        .heroInfoBar .heroImg #xwImg{
+            width: 1032px;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            margin-left: -516px;
+        }
+        .heroInfoBar .heroImg #xwInfo{
+            width: 237px;
+            height: 139px;
+            background: url(../imgs/xw_info2.png) no-repeat center;
+            position: absolute;
+            top: 738px;
+            right: 411px;
+            z-index: 3;
+        }
+        .heroInfoBar .heroName{
+            position: absolute;
+            width: 161px;
+            height: 250px;
+            top: 369px;
+            left: 6%;
+            margin-left: 80.5px;
+        }
+        .heroInfoBar .heroName::before{
+            content: '';
+            position: absolute;
+            top: 160px;
+            left: 143px;
+            width: 47px;
+            height: 178px;
+            background: url(../imgs/xw_cv.png)no-repeat center;
+            z-index: 3;
+        }
+        .heroInfoBar .heroName::after{
+            content: '';
+            position: absolute;
+            top: 263px;
+            left: 86px;
+            width: 81px;
+            height: 194px;
+            background: url(../imgs/xw_mline.png) no-repeat center;
+        }
+        .heroInfoBar .heroInfo{
+            position: absolute;
+            top: 665px;
+            left: 109px;
+        }
+        /* 语音按键 */
+        .heroInfoBar .heroCvBtn{
+            background: url(../imgs/yqs_audioBj.png) no-repeat center;
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 3;
+            top: 628px;
+            left: 252px;
+        }
+        .heroInfoBar .heroCvBtn div{
+            background: url(../imgs/yqs_audio.png) no-repeat center;
+            width: 22px;
+            height: 18px;
+            margin: 16px 0 0 15px;
+        }
+        .heroInfoBar .slideHeroNav{
+            background: url(../imgs/yqs_rb.png);
+            width: 454px;
+            height: 902px;
+            position: absolute;
+            z-index: 2;
+            top: 235px;
+            right: 170px;
+        }
+        /* 右侧人物轮播样式开始 */
+        .slideHeroNav div{
+            width: 176px;
+            height: 110px;
+            z-index: 3;
+            position: absolute;
+            top: 307px;
+            right: -70px;
+            cursor: pointer;
+            background: url(../imgs/xw_headActive.png) no-repeat center;
+        }
+        .slideHeroNav #ygsHead{
+            top: 164px;
+            right: -27px;
+            background: url(../imgs/yqs_head.png) no-repeat center;
+        }
+        .slideHeroNav #ygsHead:hover{
+            background: url(../imgs/yqs_headActive.png) no-repeat center;
+        }
+        .slideHeroNav #bmqHead{
+            top: 459px;
+            right: -76px;
+            background: url(../imgs/bmq_head.png) no-repeat center;
+        }
+        .slideHeroNav #bmqHead:hover{
+            background: url(../imgs/bmq_headActive.png) no-repeat center;
+        }
+        .slideHeroNav #syHead{
+            top: 612px;
+            right: -26px;
+            background: url(../imgs/sy_head.png) no-repeat center;
+        }
+        .slideHeroNav #syHead:hover{
+            background: url(../imgs/sy_headActive.png) no-repeat center;
+        }    
+        /* 右侧人物轮播样式结束 */
+        /* 人物介绍模块样式结束 */
+
+        /* 模块3（图片、配置）样式开始 */
+        .wrapperMode1{
+            width: 100%;
+            height: 1313px;
+            background: url(../imgs/wmode3.jpg) no-repeat top center;
+            margin-top: 55px;
+            position: absolute;
+            top: 3423px;
+        }
+        
+        .picBar,.equipTitle{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .picNav{
+            width: 1300px;
+            position: relative;
+            height: 595px;
+            margin: 0 auto;
+        }
+        .picNav #prevBtn,.picNav #nextBtn{
+            position: absolute;
+            top: 50%;
+            margin-top: -112px;
+        }
+        .picNav #prevBtn{
+            left: -10px;
+        }
+        .picNav #nextBtn{
+            right: -10px;
+        }
+        .picNav .picCon{
+            width: 100%;
+            margin-top: 65px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .picNav .picCon .picItem{
+            display: flex;
+            width: 271px;
+            height: 459px;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+        /* 滤镜（移上去出现） */
+        .picNav .picCon .picItem .filter{
+            transition: 0.7s ease-out;
+            opacity: 0;
+            width: 251px;
+            height: 410px;
+            position: absolute;
+            top: 15px;
+            background: url(../imgs/filter.png) no-repeat center;
+        }
+        .picNav .picCon .picItem .filter img{
+            width: 70%;
+            position: absolute;
+            left: 32px;
+            top: 50%;
+            margin-top: -41px;
+        }
+        .picNav .picCon .picItem:hover .filter{
+            opacity: 1;
+        }
+        .picNav .picCon .picItem a{
+            line-height: 12px;
+            font-size: 12px;
+            color: #284f68;
+        }
+        /* 图标 */
+        .picNav .picCon .picItem a span{
+            width: 14px;
+            height: 16px;
+            margin-right: 5px;
+            vertical-align:middle;
+            background: url(../imgs/pcIcon.png) no-repeat;
+            background-size: 100%;
+            display: inline-block;
+        }
+        .picNav .picCon .picItem a:last-of-type span{
+            background: url(../imgs/phoneIcon.png) no-repeat;
+            margin-left: 10px;
+            margin-right: 3px;
+        }
+        .picNav .picCon .picItem img{
+            width: 100%;
+        }
+        /* 配置样式开始 */
+        .dispose{
+            margin-top: 30px;
+            display: flex;
+            z-index: 1;
+            justify-content: center;
+        }
+        /* 配置样式结束 */
+        /* 模块3（图片、配置）样式结束 */
+
+        /* 模块4（相关媒体、仙剑系列图）样式开始 */
+        /* 背景 */
+        .wrapperMode2{
+            width: 100%;
+            height: 700px;
+            background: url(../imgs/wmode4.jpg) no-repeat top center;
+            margin-top: 55px;
+            position: absolute;
+            top: 4732px;
+            z-index: -1;
+            }
+        /* 相关媒体样式开始 */
+        .medioCon{
+            position: absolute;
+            top: 4945px;
+            width: 100%;
+        }
+        .medioBar{
+            width: 1180px;
+            margin: 0 auto;
+        }
+        .medioBar .mediaNav{
+            width: 100%;
+            height: 170px;
+            background: url(../imgs/media.png) no-repeat top center;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: row;
+        }
+        .mediaNav .mediaLeft{
+            width: 710px;
+            height: 100%;
+            padding: 0 60px 0 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .mediaNav .mediaLeft a{
+            width: 56px;
+            height: 63px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex-direction:column;
+        }
+        .mediaNav .mediaLeft a img{
+            width: 40px;
+        }
+        .mediaNav .mediaLeft .weixinCode,.mediaNav .mediaLeft .weiboCode{
+            position: absolute;
+            top: -100px;
+            z-index: 9;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .mediaNav .mediaLeft .weixinCode{
+            left: 112px;
+        }
+        .mediaNav .mediaLeft #weixin:hover ~.weixinCode,
+        .mediaNav .mediaLeft #weibo:hover ~.weiboCode,
+        .mediaNav .mediaLeft .weixinCode:hover,
+        .mediaNav .mediaLeft .weiboCode:hover{
+            opacity: 1;
+        }
+        .mediaNav .mediaLeft .weiboCode{
+            left: 254px;
+        }
+        .mediaNav .mediaLeft a span{
+            font-size: 14px;
+            color: #284F68;
+            margin-top: 10px;
+        }
+        .mediaRight{
+            margin-left: 50px;
+            margin-top: 7px;
+            width: 470px;
+            height: 151px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .mediaRight .row{
+            display: flex;
+        }
+        .mediaRight .row a{
+            margin: 5px;
+            display: block;
+            width: 91px;
+            height: 51px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        /* 相关媒体样式结束 */
+
+        /* 仙剑系列样式开始 */
+        .plAllNar{
+            position: absolute;
+            top: 5145px;
+            width: 1510px;
+            overflow: hidden;
+            height: 313px;
+        }
+        .plAllBar{
+            width: 100%;
+            height: 313px;
+            background: url(../imgs/bot_pattern.png)no-repeat top center;
+            margin: 0 auto -60%;
+        }
+        .plAllList{
+            width: 1180px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+        .palsGame{
+            display: block;
+            width: 134px;
+            height: 78px;
+            position: relative;
+        }
+        .palsGame img{
+            border-radius: 10px;
+            border: 4px solid snow;
+        }
+        .plAllBar .palsGame::before{
+            display: block;
+            content: '';
+            width: 1px;
+            height: auto;
+            background-color: #fff;
+            position: absolute;
+            top: 93px;
+            left: 60px;
+            z-index: 4;
+        }
+        .plAllBar .palsGame::after{
+            display: block;
+            content: '';
+            width: 9px;
+            height: 9px;
+            background: url(../imgs/circle.png) no-repeat;
+            position: absolute;
+            left: 56px;
+            top: 84px;
+            z-index: 4;
+        }
+        .plAllBar .pal1{
+            margin: 10px 0 0;
+        }
+        .plAllBar .pal1::before{
+            height: 105px;
+        }
+        .plAllBar .pal2{
+            margin: 29px 0 0;
+        }
+        .plAllBar .pal2::before{
+            height: 48px;
+        }
+        .plAllBar .pal3{
+            margin: 60px 0 0;
+        }
+        .plAllBar .pal3::before{
+            height: 32px;
+        }
+        .plAllBar .pal4{
+            margin: 22px 0 0;
+        }
+        .plAllBar .pal4::before{
+            height: 34px;
+        }
+        .plAllBar .pal5{
+            margin: 0 0 0;
+        }
+        .plAllBar .pal5::before{
+            height: 54px;
+        }
+        .plAllBar .pal6{
+            margin: 46px 0 0;
+        }
+        .plAllBar .pal6::before{
+            height: 28px;
+        }
+        .plAllBar .pal7{
+            margin: 70px 0 0;
+        }
+        .plAllBar .pal7::before{
+            height: 42px;
+        }
+        .plAllBar .pal8{
+            margin: 10px 0 0;
+        }
+        .plAllBar .pal8::before{
+            height: 106px;
+        }
+        .palsGame .palsName{
+            width: 100%;
+            height: 100%;
+            background-color: #ffffffe7;
+            text-align: center;
+            line-height: 78px;
+            overflow: hidden;
+            font-size: 12px;
+            color: #284f68;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.7s ease-in-out;
+            opacity: 0;
+        }
+        .palsGame:hover .palsName{
+            opacity: 1;
+        }
+        /* 仙剑系列样式结束 */
+        /* 模块4（相关媒体、仙剑系列图）样式结束 */
+
+        /* 底部栏样式开始 */
+        .footerNav{
+            position: absolute;
+            top: 5447px;
+            width: 100%;
+            height: auto;
+            background-color: #09101f;
+            padding: 30px 0;
+        }
+        .footerBar{
+            height: 60px;
+            display: flex;
+        }
+        .footerLogoBar{
+            display: flex;
+            justify-content: space-evenly;
+            width: 475px;
+            height: 59px;
+        }
+        .copyBar{
+            width: 680px;
+        }
+        .copyBar p{
+            font-family: arial, "Microsoft YaHei", "微软雅黑";
+            font-size: 12px;
+            color: #66707a;
+            line-height: 20px;
+        }
+        .copyBar a{
+            color: #5099bd;
+        }
+        .copyBar a:hover{
+            color: #00C0FF;
+        }
+        /* 底部栏样式结束 */

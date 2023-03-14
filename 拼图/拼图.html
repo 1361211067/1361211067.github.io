@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拼图</title>
+    <style>
+        body {
+            background-color: #03132a;
+        }
+
+        .con {
+            display: flex;
+            position: relative;
+        }
+
+        .topNav {
+            width: 400px;
+            height: 100px;
+            /* background-color: blanchedalmond; */
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            display: flex;
+            justify-content: center;
+        }
+
+        .topNav img {
+            margin: 0 auto;
+        }
+        .topNav img.active {
+            border: 2px solid #78a0dfab;
+            border-radius: 2px;
+        }
+
+        .puzzle {
+            border: 4px solid #78a0dfab;
+            box-shadow: 2px -3px 5px 1px #3c33338f;
+            border-radius: 5px;
+            width: 305px;
+            height: 304px;
+            background-repeat: no-repeat;
+            margin: 200px auto;
+        }
+
+        .puzzle1 {
+            width: 305px;
+            height: 304px;
+            /* background-size: 210px 210px; */
+            margin: 200px auto;
+        }
+
+        .piece {
+            width: 100px;
+            height: 100px;
+            float: left;
+            border: #ddd solid 1px;
+            /* background-image: url("./img2.png"); */
+            background-repeat: no-repeat;
+            background-size: 310px 310px;
+            border-radius: 5px;
+        }
+
+        #piece1 {
+            background-position: 0 0;
+        }
+
+        #piece2 {
+            background-position: -100px 0;
+        }
+
+        #piece3 {
+            background-position: -200px 0;
+        }
+
+        #piece4 {
+            background-position: 0 -100px;
+        }
+
+        #piece5 {
+            background-position: -100px -100px;
+        }
+
+        #piece6 {
+            background-position: -200px -100px;
+        }
+
+        #piece7 {
+            background-position: 0 -200px;
+        }
+
+        #piece8 {
+            background-position: -100px -200px;
+        }
+
+        #piece9 {
+            background-position: -200px -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con">
+        <div class="topNav">
+            <img src="./img0.png" width="100" height="100" alt="">
+            <img src="./img1.png" width="100" height="100" alt="">
+            <img src="./img2.png" width="100" height="100" alt="">
+        </div>
+        <div class="puzzle">
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece1"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece2"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece3"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece4"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece5"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece6"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece7"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece8"></div>
+            <div class="piece" ondrop="drop(event)" ondragstart="dragstart(event)" ondragover="dragover(event)"
+                draggable="true" id="piece9"></div>
+        </div>
+    </div>
+    <script>
+
+        var piece = document.querySelectorAll(".puzzle .piece");
+        var winStr = ""
+        piece.forEach(function (item, index) {
+            winStr += item.id;
+        });
+        // console.log(winStr);
+        var arr = "123456789".split('');
+        var newArr = arr.sort(function () {
+            return Math.random() - 0.5;
+        });
+
+        var puzzle = document.querySelector(".puzzle");
+        for (var i = 0; i < puzzle.children.length; i++) {
+            puzzle.children[i].id = "piece" + newArr[i];
+        }
+
+        //拖动时触发的方法
+        function dragstart(event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+        }
+        //给放置区域绑定拖动结束事件
+        function dragover(event) {
+            event.preventDefault();
+        }
+
+        //拖动放置事件
+        var tempId = "";
+        function drop(e) {
+            // console.log("发送方：", event.dataTransfer.getData("text/plain"));
+            // console.log("接受方：", e.target.id);
+            tempId = e.target.id;
+            e.target.id = event.dataTransfer.getData("text/plain");
+            document.getElementById(event.dataTransfer.getData("text/plain")).id = tempId;
+
+            var nowStr = ""
+            piece.forEach(function (item, index) {
+                nowStr += item.id;
+            });
+            setTimeout(function(){
+                if (winStr == nowStr) {
+                alert("恭喜你，完成拼图");
+                piece.forEach(function (item, index) {
+                    item.removeAttribute("draggable");
+                    item.removeAttribute("ondragstart");
+                    item.removeAttribute("ondrop");
+                    item.removeAttribute("ondragover");
+                });
+            }
+            },1000);
+        }
+
+        // var backgroundImage = window.getComputedStyle(element).getPropertyValue('background-image');
+
+        var images = [
+            '"img0.png"',
+            '"img1.png"',
+            '"img2.png"',
+        ];
+
+        
+        function changeImage() {
+            var randomIndex = Math.floor(Math.random() * 3);
+            var showImg = document.querySelectorAll(".topNav img");
+            // console.log(showImg);
+            showImg[randomIndex].classList.add("active");
+             // 随机生成0到2的整数
+              var backgroundImage = 'url('+images[randomIndex]+')';
+            //   console.log(backgroundImage);
+               // 获取对应的图片路径
+               piece.forEach(function(item) {
+                item.style.backgroundImage = backgroundImage;
+            });
+        }
+        changeImage();
+    </script>
+</body>
+
+</html>

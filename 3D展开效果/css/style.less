@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    vertical-align: bottom;
+}
+.wrap{
+    width: 100%;
+    height: 100vh;
+    background: url(../imgs/StudentGirl_1.jpg) no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card{
+        width: 540px;
+        height: 280px;
+        position: relative;
+        cursor: pointer;
+        &:hover .rolebg{
+            transform: perspective(1000px) rotateX(30deg) skewX(-25deg);
+        }
+        &:hover .role{
+            transform: scale(1.3);
+        }
+        &:hover .content{
+            opacity: 1;
+            transform: translateY(120px);
+        }
+        .rolebg{
+            width: 540px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px 20px rgba(65, 65, 65, 0.04);
+            transform-origin: bottom;
+            transition: 1s;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .role{
+            transition: 1s;
+            transform-origin: bottom;
+            width: 100px;
+            height: 230px;
+            position: absolute;
+            bottom: 0px;
+            left: 80%;
+            transform: translate(-50%);
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .content{
+            width: 440px;
+            padding: 10px;
+            color: #fff;
+            position: absolute;
+            bottom: -50px;
+            opacity: 0;
+            transition: 1s;
+            h1{
+                font-weight: 200;
+            }
+            p{
+                font-weight: 200;
+                padding-top: 10px;
+                font-size: 14px;
+            }
+        }
+    }
+}

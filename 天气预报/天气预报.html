@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.6.3.min.js"></script>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>天气预报</h2>
+
+        <div class="inputBox"><input id="cityName" type="text" placeholder="请输入城市名称"><button class="find">搜索</button>
+        </div>
+        <div class="cityList">
+            <span>热门城市：</span>
+            <ul class="newUl">
+            </ul>
+            <span class="change"><a href="javascript:;">换一换<img src="./images/refresh-icon.png"
+                        alt=""></a></span>
+        </div>
+        <div class="showNav1">
+            <p class="error">😂诶呀，查询天气发生了错误，错误原因是：数据返回为空</p>
+        </div>
+        <div class="showNav2">
+            <!-- <div class="item">
+                <img src="./jQuery第三天与Ajax第一天作业素材/images/dayu.png" alt="">
+                <p class="weather">雷阵雨</p>
+                <p class="temp">最低温25°C ~ 最高温33°C</p>
+                <p class="date">2021-06-09星期三</p>
+                <p class="wind">北风</p>
+                <p class="level">1-2级</p>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        /*
+        接口:
+            天行数据天气接口文档: https://www.tianapi.com/apiview/72
+        */
+        // 热门城市总列表
+        var arrCityName = [
+            "北京",
+            "上海",
+            "广州",
+            "深圳",
+            "苏州",
+            "大连",
+            "重庆",
+            "杭州",
+            "无锡",
+            "天津",
+            "佛山",
+            "宁波",
+            "南京",
+            "成都",
+            "东莞",
+            "武汉",
+            "青岛",
+            "沈阳",
+            "烟台",
+            "唐山",
+            "济南",
+            "哈尔滨",
+            "石家庄",
+            "郑州",
+            "泉州",
+            "温州",
+            "长沙",
+            "南通",
+            "长春",
+            "潍坊",
+            "绍兴",
+            "福州",
+            "淄博",
+            "大庆",
+            "常州",
+            "台州",
+            "济宁",
+            "东营",
+            "西安",
+            "徐州",
+            "临沂",
+            "威海",
+            "嘉兴",
+            "邯郸",
+            "洛阳",
+            "沧州",
+            "金华",
+            "昆明",
+            "南阳",
+            "保定"
+        ];
+
+        // 要求:
+        // 1. HTMLCSS布局
+        // 2. 点击搜索按钮或者在输入框中按下回车,可以根据输入的城市名称,查询对应城市的天气数据; 默认显示广州天气数据
+
+        // 第一步: 创建ajax对象, 通过XMLHttpRequest()构造函数
+        function getWeather(cityName) {
+            //重置
+            $(".showNav1 .error").hide();
+            $(".showNav2").html("");
+            var xhr = new XMLHttpRequest();
+            // console.log("xhr=>", xhr);
+            xhr.open("GET", "https://apis.tianapi.com/tianqi/index?key=0986ec8d9fb94e2ba3044ad0d33d6657&city=" + cityName + "&type=7");
+
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // xhr.responseText表示ajax对象获取服务器返回的文本值
+                    // console.log("xhr.responseText=>", xhr.responseText);
+                    // 把json字符串转成json对象  JSON.parse(json字符串)
+                    var res = JSON.parse(xhr.responseText)
+                    
+                    // console.log(res);
+                    // 判断数据是否有问题
+                    if (res.code != 200) {
+                          $(".showNav1 .error").show();
+                          return;
+                      }
+                    //数组
+                    data = res.result.list;
+                       if(data != undefined){
+                        var str = "";
+                        data.map(function (item) {
+                            str += ' <div class="item">';
+                            str += '<img src="./images/' + item.weatherimg + '" alt="">';
+                            str += '<p class="weather">' + item.weather + '</p>';
+                            str += '<p class="temp">最低温' + item.lowest + ' ~ 最高温' + item.highest + '</p>';
+                            str += '<p class="date">' + item.date + ' ' + item.week + '</p>';
+                            str += '<p class="wind">' + item.wind + '</p>';
+                            str += '<p class="level">' + item.windsc + '</p></div>';
+                        });
+                        // console.log(str);
+                        $(".showNav2").html(str);
+                       }
+                    } 
+            }
+        }
+
+
+        getWeather("广州");
+
+        $(".find").click(function () {
+            var $cityName = $("#cityName").val();
+            if ($cityName.trim().length != 0) {
+                getWeather($cityName);
+            } else {
+                alert("请输入城市姓名以后再查询");
+                // return ;
+            }
+            $("#cityName").val("");
+        });
+        // 3. 根据查询到的数据,渲染页面DOM结构
+
+        // 4. 点击任意热门城市,查询对应城市天气数据,并渲染DOM结构
+        // console.log();
+        var newCity = [];
+        arrCityName.forEach(function (item, index) {
+            newCity[index] = item;
+        });
+        newCity = newCity.splice(0, 7);
+        var newStr = "";
+        newCity.forEach(function (item) {
+            $(".newUl").append('<li><a href="javascript:;">' + item + '</a></li>');
+        });
+        $(".newUl").on("click", "a", function () {
+            $(".showNav1 .error").hide();
+            getWeather($(this).text());
+        });
+
+
+        // 5. 点击 "换一换" 随机切换, 不重复的7个热门城市, 并默认显示第一个热门城市的天气
+        // console.log(arrCityName);
+        $(".change").click(function () {
+            $(".newUl").html("");
+            //乱序
+            arrCityName.sort(function () {
+                return Math.random() - 0.5;
+            });
+            // console.log("打乱以后的数组newCity=>", arrCityName);
+            // 从打乱的数组中取出7个数组元素
+            var showCity = arrCityName.slice(0, 7);
+            // console.log(showCity);
+            var newStr = "";
+            showCity.forEach(function (item) {
+
+                $(".newUl").append('<li><a href="javascript:;">' + item + '</a></li>');
+                getWeather(showCity[0]);
+            });
+
+        });
+            // 6. 如果查询不到城市天气数据,显示提示信息
+
+            // 7. 如果文本框输入内容为空,弹窗提示,不查询  (5分)
+
+    </script>
+</body>
+
+</html>
