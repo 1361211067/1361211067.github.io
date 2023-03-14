@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#panel{
+	/* display: block; */
+	width:810px; height:476px;
+	background:white; position:relative;
+	border-radius:8px; border:1px solid #DDD;
+	box-shadow:0px 0px 10px 5px rgba(0,0,0,0.1);
+}
+#p_left{
+	width:180px; height:476px; float:left;
+}
+#p_body{
+	width:385px; height:476px; float:left;
+}
+#p_right{
+	width:245px; height:476px;
+	float:left;
+}
+#p_left ul{
+	list-style: none; height:460px;
+	margin:0px; padding:8px;
+	overflow:hidden; padding-right:0px;
+}
+#p_left ul li{
+	height:50px; line-height:50px;
+	margin-bottom:8px;
+}
+
+#p_left ul li .sub_text{	
+	text-indent:.6em; border-radius:8px;
+}
+.sub_menu{
+	width:385px; height:476px;
+	position:absolute; background:white;
+	left:180px; top:0px; display:none;
+}
+
+
+.sub_menu_top{
+	width:100%; 
+	height:77px;
+	font-size:20px;
+	line-height:77px; background-image:url('../imgs/line01.png');
+	background-repeat:no-repeat; background-position:left bottom;
+}
+.sub_menu_top img{
+	margin-left:25px; vertical-align:middle;
+}
+.sub_menu_body > div{
+	float:left; width:35%; font-size:16px;
+}
+.empty_right{
+	/* display: none; */
+	position:absolute;
+	width:245px; height:476px;
+	top:0px; left:565px;
+}
+
+#right_logos{
+	padding:0px 35px; 
+}
+#right_logos div{
+	float:left;
+	width:43px;
+	height:55px;
+	text-align:center;
+	font-size:12px;
+	margin-right:20px;
+}
+#right_top{
+	width:100%; height:77px;
+	background-image:url('../imgs/line02.png');
+	background-repeat:no-repeat;
+	background-position:left bottom;
+}
+
+#right_img > div{
+	height:175px;
+	margin-left:40px;
+}
+
+#right_img > div > div{
+	height:50px; font-size:14px;
+	line-height:30px;
+	color:#666;
+}
+    </style>
+
+    <script>
+        var lastLi;
+		var lastMenu;
+			// 当窗体加载好后，会自动调用下面的函数
+			window.onload = function(){
+				// 打印输出调试信息
+				// console.log("onload;");
+				// 获取所有的class = "li_item" 的元素
+				var arr = document.getElementsByClassName("sub_text");
+				for(var i = 0;i<arr.length;i++){
+					var LI = arr[i];
+					if(i==0){
+						console.log("保存的第一个LI对象");
+						lastLi=LI;	//保存上一个Li,目的，下一次移到其他位置时，要将它原先的样式清除
+					}
+					LI.onmouseover = function(){
+						// console.log("Li的id是"+this.id);
+						// 截取，将“li0  截取0”  第二位到第三位就是0
+						// 1.把li0   --->  [0]
+						var _id = this.id.substring(2,3);
+						// 2.把字符串转成  ----> 数字【0】
+						// console.log("Li的id是"+_id);
+						var index = parseInt(_id);
+
+						// 判断
+						if(lastLi!=undefined){
+							lastLi.style.backgroundColor = 'white';
+						}
+						// 获取二级菜单
+						var menus = document.getElementsByClassName("sub_menu");
+						//menu = DIV class = "sub_menu"
+						var menu = menus[index];
+						this.style.backgroundColor = 'yellow';
+						this.style.cursor = 'pointer';
+						if(lastMenu){//上一个菜单对象有值，
+							// 隐藏上一个菜单对象
+							lastMenu.style.display = 'none';
+						}
+						if(menu){//如果不是空的
+							//将菜单内容显示
+							menu.style.display = 'block';
+							lastMenu = menu;
+						}
+						lastLi = this;
+					}
+				}
+			}
+    </script>
+</head>
+<body>
+    <!-- 1015*596 -->
+    <!-- 228*596 -->
+    <!-- 787*596 -->
+    <li class="menu_item">
+        <!-- 下拉菜单{1} -->
+        <div class="title">发现</div>
+            <div id="panel" class="item_panel">
+                <div id="p_left">
+                    <ul>
+                        <li class="li_item">
+                            <div id="li0" class="sub_text ">精选</div>
+                            <div class="sub_menu" style="display:block;">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>精选</span>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>运营设计</div>
+                                        <div>包装</div>
+                                        <div>动画/影视</div>
+                                        <div>人像摄影</div>
+                                        <div>商业插画</div>
+                                        <div>电商</div>
+                                        <div>APP界面</div>
+                                        <div>艺术插画</div>
+                                    </div>
+                                    <div>
+                                        <div>家装设计</div>
+                                        <div>海报</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty_right"></div>
+                        </li>
+                        <li  class="li_item">				
+                            <div id="li1" class="sub_text">平面</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>平面</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>包装</div>
+                                        <div>海报</div>
+                                        <div>品牌</div>
+                                        <div>IP形象</div>
+                                        <div>字体/字形</div>
+                                        <div>Logo</div>
+                                        <div>书籍/画册</div>
+                                        <div>宣传物料</div>
+                                    </div>
+                                    <div>
+                                        <div>图案</div>
+                                        <div>信息图表</div>
+                                        <div>PPT/Keynote</div>
+                                        <div>其他平面</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>			
+                        <li  class="li_item">				
+                            <div id="li2" class="sub_text">插画</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>插画</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>商业插画</div>
+                                        <div>概念设定</div>
+                                        <div>游戏原画</div>
+                                        <div>绘本</div>
+                                        <div>儿童插画</div>
+                                        <div>艺术插画</div>
+                                        <div>创作习作</div>
+                                        <div>新锐潮流插画</div>
+                                    </div>
+                                    <div>
+                                        <div>像素画</div>
+                                        <div>AI绘画</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>
+                        <li  class="li_item">				
+                            <div id="li3" class="sub_text">UI</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>UI</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>APP界面</div>
+                                        <div>游戏UI</div>
+                                        <div>软件界面</div>
+                                        <div>图标</div>
+                                        <div>主题/皮肤</div>
+                                        <div>交互/UE</div>
+                                        <div>动效设计</div>
+                                        <div>闪屏/壁纸</div>
+                                    </div>
+                                    <div>
+                                        <div>其他UI</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>
+                        <li  class="li_item">				
+                            <div id="li4" class="sub_text">网页</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>网页</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>电商</div>
+                                        <div>企业官网</div>
+                                        <div>游戏/娱乐</div>
+                                        <div>运营设计</div>
+                                        <div>移动端网页</div>
+                                        <div>门户网站</div>
+                                        <div>个人网站</div>
+                                        <div>其他网页</div>
+                                    </div>
+                                    <div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>
+                        <li  class="li_item">				
+                            <div id="li5" class="sub_text">摄影</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>摄影</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>人像摄影</div>
+                                        <div>风光摄影</div>
+                                        <div>人文/纪实摄影</div>
+                                        <div>美食摄影</div>
+                                        <div>产品摄影</div>
+                                        <div>环境/建筑摄影</div>
+                                        <div>时尚/艺术摄影</div>
+                                        <div>修图/后期</div>
+                                    </div>
+                                    <div>
+                                        <div>宠物摄影</div>
+                                        <div>婚礼摄影</div>
+                                        <div>其他摄影</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>
+                        <li  class="li_item">				
+                            <div id="li6" class="sub_text">三维</div>
+                            <div class="sub_menu">
+                                <div class="sub_menu_top">
+                                    <img src="../imgs/logo1.png"/>
+                                    <span>三维</spn>
+                                </div>
+                                <div class="sub_menu_body">						
+                                    <div style="padding:0px 25px;">
+                                        <div>动画/影视</div>
+                                        <div>机械/交通</div>
+                                        <div>人物/生物</div>
+                                        <div>产品</div>
+                                        <div>场景</div>
+                                        <div>建筑/空间</div>
+                                        <div>其他三维</div>
+                                        <div>文章</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 二级菜单 -->
+                            <div class="empty_right"></div>				
+                        </li>
+                        <li>
+                            <div class="sub_text">影视</div>
+                        </li>
+                        <li>
+                            <div class="sub_text">空间</div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="p_body"></div>
+                <div id="p_right">
+                    <div id="right_top">
+                        <div style="height:20px;"></div>
+                        <div id="right_logos">
+                            <div>
+                                <img src="../imgs/c01.png"/><span>收藏夹</span>
+                            </div>
+                            <div>
+                                <img src="../imgs/c02.png"/><span>设计师</span>
+                            </div>
+                            <div style="margin-right:0px;">
+                                <img src="../imgs/c03.png"/><span>榜单</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右侧 -->
+                    <div style="height:30px;"></div>
+                    <div id="right_img">
+                        <div>
+                            <img src="../imgs/R01.png"/>
+                            <div>一套课搞定板绘基础</div>
+                        </div>
+                        <div>
+                            <img src="../imgs/R02.png"/>
+                            <div>商标注册抓紧啦~</div>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+    </li>
+</body>
+</html>

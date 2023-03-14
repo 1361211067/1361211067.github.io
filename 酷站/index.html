@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站酷ZCOOL-设计师互动平台-打开站酷，发现更好的设计！</title>
+
+    <style>
+        /* 重置默认样式 */
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        body{
+            background-color: #f7f7f7;
+        }
+        /* 
+        width:100%
+        height:56px
+        */
+        #topbar{
+            background-color: #fff200;
+            height: 56px;
+            padding: 0 22px;
+            font-size: 14px;
+            position: relative;
+            z-index: 9;
+        }
+        #topbar .topbarMenu{
+            width: 1139px;
+        }
+        #topbar .topbarMenu .top_title{
+            float: left;
+            padding: 0 18px;
+            text-align: center;
+            height: 56px;
+            line-height: 56px;
+            color: #595400;
+        }
+        .top_title a{
+            color: #595400;
+        }
+        .top_title:hover{
+            cursor: pointer;
+            color: #222;
+        }
+        #topbar .topbarMenu >li{
+            float: left;
+            padding: 0 10px;
+            text-align: center;
+            height: 56px;
+            /* line-height: 56px; */
+            /* color: #222; */
+        }
+        .dvlogo,.inRearch,#cloud_icon,.unLogin,.login_btn,.register_btn{
+            float: left;
+        }
+        .dvlogo{
+            height: 56px;
+        }
+        .dvlogo img{
+            float: left;
+            padding: 18px 0;
+        }
+        .inRearch{
+            width: 278px;
+            height: 32px;
+            line-height: 20px;
+            margin: 12px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .inRearch input{
+            width: 220px;
+            height: 100%;
+            border: none;
+            padding: 0 12px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            float: left;
+        }
+        .inRearch input::-webkit-input-placeholder{
+            color: #c0c0c0;
+        }
+        .inRearch>span{
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+            border-radius: 0 5px 5px 0;
+        }
+        .inRearch>span:hover,#cloud_icon:hover{
+            cursor: pointer;
+        }
+        .inRearch>span img{
+            padding: 6px;
+        }
+        #cloud_icon{
+            margin: 0 20px;
+            margin-left: 25px;
+        }
+        #cloud_icon img{
+            float: left;
+            /* 垂直居中 */
+            padding: 15px 0;
+        }
+        .unLogin{
+            height: 56px;
+            line-height: 56px;
+            width: 156px;
+            height: 55px;
+        }
+        .unLogin:hover,.register_btn{
+            cursor: pointer;
+        }
+        .unLogin .login_btn{
+            cursor: pointer;
+            width: 76px;
+            text-align: center;
+        }
+        .unLogin .register_btn{
+            padding: 5px 18px;
+            border-radius: 5px;
+            border: none;
+            background-color: #222;
+            color: #fff;
+            margin: 13px 0;
+        }
+        .unLogin .register_btn:hover{
+            background-color: rgb(77, 77, 77);
+        }
+        .top_panel_list{
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            top: 48px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px 1px #9b9b9ba8;
+            padding: 10px;
+        }
+
+        .cloudMenu{
+            right: 180px;
+        }
+        .UnLoginMenu{
+            right: 62px;
+        }
+        .UnLoginMenu div .organge{
+            color: #ff7504;
+        }
+        .UnLoginMenu >hr{
+            margin: 3px;
+            color: #c0c0c0;
+            opacity: 0.3;
+        }
+        .UnLoginMenu > div{
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            padding: 5px;
+        }
+        .UnLoginMenu img{
+            float: left;
+            line-height: 40px;
+            height: 35px;
+            margin-right: 10px;
+        }
+        .UnLoginMenu div div{
+            float: left;
+        }
+
+        .UnLoginMenu button{
+            /* margin: 5px; */
+            padding: 0 30px;
+            background-color: #fff200;
+            width: 150px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+        }
+        .UnLoginMenu button:hover{
+            cursor: pointer;
+            background-color: #ffd100;
+        }
+
+        .top_panel_list >ul li{
+            width: 134px;
+            height: 20px;
+            line-height: 20px;
+            text-align: left;
+            padding: 12px 16px;
+            border-radius: 5px;
+        }
+
+        .top_menu:hover .top_panel_list{
+            display: block;
+        }
+        .top_menu:hover #panel{
+            display: block;
+        }
+        .top_panel_list ul li:hover{
+            background-color: #fff200;
+        }
+
+        /* 浮动面板 */
+        #panel{
+            display: none;
+            float: left;
+            position: absolute;
+            top: 45px;
+            text-align: left;
+            cursor: pointer;
+            width:810px;
+            height:476px;
+            background:white;
+            border-radius:8px;
+            border:1px solid #DDD;
+            box-shadow:0px 0px 10px 5px rgba(0,0,0,0.1);
+        }
+
+        #p_left{
+            position: relative;
+            width:180px;
+            height:476px;
+            float:left;
+            border-radius: 8px 0 0 8px;
+            background-color: #f8f8f8;
+        }
+        #p_body{
+            width:385px; height:476px; float:left;
+        }
+        #p_right{
+            width:245px; height:476px;
+            float:left;
+        }
+        #p_left ul{
+            height:460px;
+            margin:0px; padding:8px;
+            overflow:hidden;
+            padding-right:0px;
+        }
+        #p_left ul li{
+            height:50px;
+            line-height:50px;
+            margin-bottom:8px;
+        }
+
+        #p_left ul li .sub_text{	
+            text-indent:.6em; border-radius:8px;
+        }
+        .sub_menu{
+            width:385px; height:476px;
+            position:absolute; background:white;
+            left:180px; top:0px; display:none;
+        }
+        
+        .sub_menu_top{
+            width:100%; 
+            height:77px;
+            font-size:20px;
+            line-height:77px; background-image:url('./imgs/line01.png');
+            background-repeat:no-repeat; background-position:left bottom;
+        }
+        .sub_menu_top img{
+            margin-left:25px; vertical-align:middle;
+        }
+        .sub_menu_body > div{
+            float:left; width:35%; font-size:16px;color: #555;
+        }
+        .sub_menu_body > div div:hover{
+            color: #ff7300;
+        }
+        .empty_right{
+            display: none;
+            position:absolute;
+            width:245px; height:476px;
+            top:0px; left:565px;
+        }
+
+        #right_logos{
+            padding:0px 35px; 
+        }
+        #right_logos div{
+            float:left;
+            width:43px;
+            height:55px;
+            text-align:center;
+            font-size:12px;
+            margin-right:20px;
+        }
+        #right_logos div:hover span{
+            color: #ff7300;
+        }
+        #right_top{
+            width:100%; height:77px;
+            background-image:url('./imgs/line02.png');
+            background-repeat:no-repeat;
+            background-position:left bottom;
+        }
+
+        #right_img > div{
+            height:175px;
+            margin-left:40px;
+        }
+
+        #right_img > div > div{
+            height:50px; font-size:14px;
+            line-height:30px;
+            color:#666;
+        }
+        #right_img > div:hover div{
+            color: #ff7300;
+        }
+
+        /* 轮播图组件 */
+
+        .slideBanner{
+            position: relative;
+            width: 100%;
+            height: 323px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        #slide{
+            width: 1236px;
+            height: 323px;
+            float: left;
+            position: absolute;
+            left: 170px;
+        }
+        #slide #imgList{
+            padding-top: 10px;
+            width: 12500px;
+            float: left;
+            left: -1275px;
+            position: absolute;
+        }
+        #slide #imgList img{
+            padding: 0 10px;
+            border-radius: 20px;
+            width: 1236px;
+            height: 100%;
+            float: left;
+        }
+        #slide:hover{
+            cursor: pointer;
+        }
+        #slide:hover + #arrLeft,#slide:hover  ~ #arrRight{
+            display: block;
+        }
+        #arrLeft,#arrRight{
+            /* cursor: pointer; */
+            display: none;
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            top: 42%;
+            opacity: 0.6;
+        }
+        #arrLeft:hover,#arrRight:hover{
+            cursor: pointer;
+        }
+        #arrLeft{
+            left: 13%;
+            background-image: url('./imgs/arrLeft.png');
+        }
+        #arrRight{
+            left:85%;
+            background-image: url('./imgs/arrRight.png');
+        }
+
+        /* 粘性导航条 */
+        .navTop{
+            height: 56px;
+            line-height: 56px;
+            background-color: #f7f7f7;
+            padding: 0 20px;
+            border-bottom: #c0c0c0 1px solid;
+            position: sticky;
+            top: 0;
+        }
+        .navTop .dvlogo{
+            margin-right: 320px;
+        }
+        .navTop .dvlogo img{
+            width: 120px;
+            padding: 0;
+            padding-top: 5px;
+            opacity: 0;
+            /* height: 12px; */
+        }
+        .navTopMenu{
+            height: 56px;
+            float: left;
+        }
+        .navTopMenu .checkMenu{
+            padding-right:250px;
+        }
+        .navTopMenu li{
+            height: 54px;
+            line-height: 56px;
+            padding: 0 40px;
+            float: left;
+            font-size: 20px;
+            color: #999;
+            border-bottom: transparent solid 1px;
+        }
+        .navTopMenu li:hover{
+            cursor: pointer;
+            color: #222;
+            border-bottom: #222 solid 2px;
+        }
+        #navTopAct{
+            color: #222;
+            border-bottom: #222 solid 2px;
+        }
+        .navtop_menu{
+            float: left;
+            position: relative;
+        }
+        #showMenu{
+            display: none;
+        }
+        .navtop_menu #find img{
+            padding:6px 0;
+        }
+        .navtop_menu #find:hover{
+            cursor: pointer;
+        }
+        .navtop_menu #cloud_icon img{
+            padding: 0;
+            padding-top: 4px;
+        }
+        .navtop_panel_list{
+            display: none;
+            /* display: block; */
+            position: absolute;
+            background-color: #fff;
+            top: 48px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px 1px #9b9b9ba8;
+            padding: 10px;
+        }
+        .navtop_menu .cloudMenu{
+            width: 140px;
+            right: 12px;
+        }
+        .navtop_menu .cloudMenu ul li{
+            color: #222;
+            border-radius: 5px;
+            padding: 12px 0 12px 16px;
+            height: 21px;
+            line-height: 21px;
+        }
+        .navtop_menu .cloudMenu ul li:hover{
+            cursor: pointer;
+            background-color: #fff200;
+        }
+        .navtop_menu .UnLoginMenu{
+            width: 180px;
+            right: 15px;
+        }
+        .navtop_menu .UnLoginMenu button{
+            margin: 0 19px;
+        }
+        .navtop_title:hover ~.navtop_panel_list,.navtop_title:hover ~.top_panel_list{
+            display: block;
+        }
+        .masterPrice{
+            margin-top: 20px;
+            height: 1800px;
+        }
+        
+        .picList{
+            display: flex;
+            justify-content:space-around;
+            margin-top: 15px;
+        }
+
+        .picItem{
+            width: 346px;
+            height: 312px;
+        }
+        .pic{
+            width: 346px;
+            height: 260px;
+        }
+        .pic img{
+            border-radius: 10px;
+            width: 100%;
+        }
+        .pic img:hover{
+            /* 移动上去时变暗 */
+            cursor: pointer;
+        }
+        .pic:hover .pic img::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        }
+        .textInfo{
+            display: flex;
+            width: 100%;
+            line-height: 29px;
+            align-items: center;
+            justify-content: space-between
+        }
+        .textInfo .good{
+            font-size: 12px;
+            color: #555;
+        }
+        .textInfo .info{
+            height: 29px;
+        }
+        .textInfo .info:hover,.auther:hover{
+            color: #ff7300;
+            cursor: pointer;
+        }
+        .textInfo span{
+            display: flex;
+            align-items: center;
+        }
+        .auther{
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #555;
+        }
+        .auther img{
+            width: 20px;
+            border-radius: 50%;
+        }
+        
+    </style>
+
+    <script>
+        // 顶部导航栏
+
+        var lastItem;
+        var lastMenu;
+        
+         // 轮播图
+        var _left = 0;
+        var timer;
+        var gIndex = 1;
+        var onMove = false;
+        var slide;
+
+        window.onload = function(){
+            // 获取菜单名称
+            var arr = document.getElementsByClassName("sub_text");
+            for(var i = 0;i<arr.length;i++){
+                var item = arr[i];
+                // 将菜单名称存入数组
+                if(i == 0){
+                    // console.log("保存第一个item对象");
+                    lastItem = item;
+                }
+                item.onmouseover = function(){
+                    // 将id中的li0 截取成为'0'
+                    var _id = this.id.substring(2,3);
+                    // 将'0'转换成0
+                    var index = parseInt(_id);
+
+                    if(lastItem!=undefined){
+                        lastItem.style.backgroundColor = '#f8f8f8';
+                    }
+
+                    var menus = document.getElementsByClassName("sub_menu");
+                    var menu = menus[index];
+                    this.style.backgroundColor = '#fff200';
+                    this.style.cursor = 'poiner';
+
+                    if(lastMenu){
+                        lastMenu.style.display = 'none';
+                    }
+                    if(menu){
+                        menu.style.display = 'block';
+                        lastMenu = menu;
+                    }
+                    lastItem = this;
+                }
+            }
+
+            //轮播图的JS
+            var arrLeft = document.getElementById("arrLeft");
+            var arrRight = document.getElementById("arrRight");
+
+            slide  = document.getElementById("imgList");
+
+
+
+            arrLeft.onclick = function(){
+                console.log("向左移动");
+                if(onMove){
+                    //结束
+                    return;
+                }
+                // 没在移动
+                onMove = true;
+
+                timer = setInterval(moveLeft,30);
+            }
+            arrRight.onclick = function(){
+                console.log("向右移动");
+                if(onMove){
+                    //结束
+                    return;
+                }
+                // 没在移动
+                onMove = true;
+
+                timer = setInterval(moveRight,30);
+            }
+        }
+
+        // 粘性导航栏的JS
+        
+        window.onwheel = function(event){
+            var scrollY = document.documentElement.scrollTop;
+            var dvlogo = document.getElementById("showLogo");
+            var showMenu = document.getElementById("showMenu");
+            if(scrollY >= 300){
+                dvlogo.style.opacity = 1;
+                showMenu.style.display = "block";
+            }else{
+
+                dvlogo.style.opacity = 0;
+                showMenu.style.display = "none";
+            }
+        }
+
+        function moveLeft(){
+            var newLeft = _left + 1275;
+
+            if(newLeft>-8568){
+                slide.style.left ="-1260px";
+                gIndex = (gIndex -1 <1)? 7 : gIndex - 1;
+
+                var nextIndex = (gIndex + 1 >= 8)? 1 : gIndex+1;
+                var preIndex = (gIndex - 1 <1 )? 7:gIndex-1; 
+
+                var Imgs = [];
+                for(var i = 0; i<3; i++){
+                var img = document.getElementById("img"+(i+1));
+                Imgs.push(img);
+                }
+                
+                var preImg = Imgs[0]
+                var curImg = Imgs[1];
+                var nextImg = Imgs[2];
+
+                preImg.src = "imgs/slide"+preIndex+".jpg";
+                curImg.src = "imgs/slide"+gIndex+".jpg";
+                nextImg.src = "imgs/slide"+nextIndex+".jpg";
+                console.log("preImg:slide"+preIndex+",curImg:slide"+gIndex+",nextImg:slide"+nextIndex);
+
+                _left = -1275;
+                onMove = false;
+
+                clearInterval(timer);
+                return;
+            }
+            slide.style.left = _left+"px";
+            _left = newLeft;
+        }
+
+        function moveRight(){
+            var newLeft = _left - 1275;
+
+            if(newLeft>-8568){
+                slide.style.left = "-1275px";
+
+                gIndex = (gIndex + 1 >= 8)? 1: gIndex + 1;
+                var preIndex = (gIndex - 1 <1 )? 7:gIndex-1; 
+                var nextIndex = (gIndex + 1 >= 8)? 1 : gIndex+1;
+
+                var Imgs = [];
+                for(var i = 0; i<3; i++){
+                var img = document.getElementById("img"+(i+1));
+                Imgs.push(img);
+                }
+
+                var preImg = Imgs[0]
+                var curImg = Imgs[1];
+                var nextImg = Imgs[2];
+
+                preImg.src = "imgs/slide"+preIndex+".jpg";
+                curImg.src = "imgs/slide"+gIndex+".jpg";
+                nextImg.src = "imgs/slide"+nextIndex+".jpg";
+                console.log("preImg:slide"+preIndex+",curImg:slide"+gIndex+",nextImg:slide"+nextIndex);
+                
+                _left = -1275;
+                onMove = false;
+
+                clearInterval(timer);
+                return;
+            }
+            slide.style.left = _left +"px";
+            _left = newLeft;
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <div id="topbar">
+        <ul class="topbarMenu">
+            <li>
+                <div class="dvlogo">
+                    <a href="https://www.zcool.com.cn/"><img src="./imgs/logo.png" alt=""></a>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title"><a href="https://www.zcool.com.cn/">首页</a></div>
+            </li>
+            
+            <li class="top_menu">
+                <!-- 下拉面板 -->
+                <div class="top_title">发现</div>
+                    <div id="panel" class="panelMenu">
+                        <div id="p_left">
+                            <ul>
+                                <li class="li_item">
+                                    <div id="li0" class="sub_text ">精选</div>
+                                    <div class="sub_menu" style="display:block;">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo1.png"/>
+                                            <span>精选</span>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>运营设计</div>
+                                                <div>包装</div>
+                                                <div>动画/影视</div>
+                                                <div>人像摄影</div>
+                                                <div>商业插画</div>
+                                                <div>电商</div>
+                                                <div>APP界面</div>
+                                                <div>艺术插画</div>
+                                            </div>
+                                            <div>
+                                                <div>家装设计</div>
+                                                <div>海报</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li1" class="sub_text">平面</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo2.png"/>
+                                            <span>平面</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>包装</div>
+                                                <div>海报</div>
+                                                <div>品牌</div>
+                                                <div>IP形象</div>
+                                                <div>字体/字形</div>
+                                                <div>Logo</div>
+                                                <div>书籍/画册</div>
+                                                <div>宣传物料</div>
+                                            </div>
+                                            <div>
+                                                <div>图案</div>
+                                                <div>信息图表</div>
+                                                <div>PPT/Keynote</div>
+                                                <div>其他平面</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>			
+                                <li  class="li_item">				
+                                    <div id="li2" class="sub_text">插画</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo3.png"/>
+                                            <span>插画</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>商业插画</div>
+                                                <div>概念设定</div>
+                                                <div>游戏原画</div>
+                                                <div>绘本</div>
+                                                <div>儿童插画</div>
+                                                <div>艺术插画</div>
+                                                <div>创作习作</div>
+                                                <div>新锐潮流插画</div>
+                                            </div>
+                                            <div>
+                                                <div>像素画</div>
+                                                <div>AI绘画</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li3" class="sub_text">UI</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo4.png"/>
+                                            <span>UI</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>APP界面</div>
+                                                <div>游戏UI</div>
+                                                <div>软件界面</div>
+                                                <div>图标</div>
+                                                <div>主题/皮肤</div>
+                                                <div>交互/UE</div>
+                                                <div>动效设计</div>
+                                                <div>闪屏/壁纸</div>
+                                            </div>
+                                            <div>
+                                                <div>其他UI</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li4" class="sub_text">网页</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo5.png"/>
+                                            <span>网页</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>电商</div>
+                                                <div>企业官网</div>
+                                                <div>游戏/娱乐</div>
+                                                <div>运营设计</div>
+                                                <div>移动端网页</div>
+                                                <div>门户网站</div>
+                                                <div>个人网站</div>
+                                                <div>其他网页</div>
+                                            </div>
+                                            <div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li5" class="sub_text">摄影</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo6.png"/>
+                                            <span>摄影</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>人像摄影</div>
+                                                <div>风光摄影</div>
+                                                <div>人文/纪实摄影</div>
+                                                <div>美食摄影</div>
+                                                <div>产品摄影</div>
+                                                <div>环境/建筑摄影</div>
+                                                <div>时尚/艺术摄影</div>
+                                                <div>修图/后期</div>
+                                            </div>
+                                            <div>
+                                                <div>宠物摄影</div>
+                                                <div>婚礼摄影</div>
+                                                <div>其他摄影</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li6" class="sub_text">三维</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo7.png"/>
+                                            <span>三维</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>动画/影视</div>
+                                                <div>机械/交通</div>
+                                                <div>人物/生物</div>
+                                                <div>产品</div>
+                                                <div>场景</div>
+                                                <div>建筑/空间</div>
+                                                <div>其他三维</div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li  class="li_item">				
+                                    <div id="li7" class="sub_text">影视</div>
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img src="./imgs/logo8.png"/>
+                                            <span>影视</spn>
+                                        </div>
+                                        <div class="sub_menu_body">						
+                                            <div style="padding:0px 25px;">
+                                                <div>短片</div>
+                                                <div>Motion Graphic</div>
+                                                <div>宣传片</div>
+                                                <div>影视后期</div>
+                                                <div>栏目片头</div>
+                                                <div>MV</div>
+                                                <div>设定/分镜</div>
+                                                <div>其他影视</div>
+                                            </div>
+                                            <div>
+                                                <div>文章</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="empty_right"></div>				
+                                </li>
+                                <li>
+                                    <div class="sub_text">空间</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="p_body"></div>
+                        <div id="p_right">
+                            <div id="right_top">
+                                <div style="height:20px;"></div>
+                                <div id="right_logos">
+                                    <div>
+                                        <img src="./imgs/c01.png"/><span>收藏夹</span>
+                                    </div>
+                                    <div>
+                                        <img src="./imgs/c02.png"/><span>设计师</span>
+                                    </div>
+                                    <div style="margin-right:0px;">
+                                        <img src="./imgs/c03.png"/><span>榜单</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 右侧 -->
+                            <div style="height:30px;"></div>
+                            <div id="right_img">
+                                <div>
+                                    <img src="./imgs/R01.png"/>
+                                    <div>一套课搞定板绘基础</div>
+                                </div>
+                                <div>
+                                    <img src="./imgs/R02.png"/>
+                                    <div>商标注册抓紧啦~</div>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>
+            </li>
+
+            <li class="top_menu">
+                <div class="top_title">共创</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>A+生态</li>
+                        <li>精彩案例</li>
+                        <li>共创故事</li>
+                        <li>我要共创</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title">活动</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>设计大赛</li>
+                        <li>专题策划</li>
+                        <li>线上活动</li>
+                        <li>线下活动</li>
+                        <li>互助投票</li>
+                        <li>学习音频</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title">正版素材</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>图片</li>
+                        <li>视频</li>
+                        <li>字体</li>
+                        <li>音乐</li>
+                        <li>模板</li>
+                        <li>IP</li>
+                        <li>创意专题</li>
+                        <li>我要供图</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title">课程</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>爆款新课</li>
+                        <li>平面视觉</li>
+                        <li>绘画插画</li>
+                        <li>电商设计</li>
+                        <li>UI设计</li>
+                        <li>商业摄影</li>
+                        <li>全部课程</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title">版权保护</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>作品登记</li>
+                        <li>软件登记</li>
+                        <li>商标注册</li>
+                        <li>区块链存证</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title"><a href="https://www.zcool.com.cn/ailab">梦笔</a></div>
+            </li>
+            <li class="top_menu">
+                <div class="top_title">...</div>
+                <div class="top_panel_list">
+                    <ul>
+                        <li>设计师</li>
+                        <li>收藏夹</li>
+                        <li>站酷APP</li>
+                        <li>站酷字库</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="inRearch"><!-- 
+         --><input type="text" name="" id="" placeholder="请输入相关的标签"><!-- 
+             --><span><img src="./imgs/find_icon.png" alt=""></span>
+        </div>
+        <div class="top_menu">
+            <div class="top_title"><span id="cloud_icon"><img src="./imgs/cloud.png" alt=""></span></div>
+            <div class="top_panel_list cloudMenu">
+                <ul>
+                    <li>上传作品</li>
+                    <li>写文章</li>
+                    <li>我的创作</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <span id="cloud_icon"><img src="./imgs/cloud.png" alt=""></span> -->
+        <div class="top_menu">
+            <div class="top_title">
+                    <div class="unLogin">
+                        <div class="login_btn">登录</div>
+                        <button class="register_btn">注册</button>
+                    </div>
+            </div>
+            <div class="top_panel_list UnLoginMenu">
+                    <div><span class="organge">登录/注册</span>后，可享受：</div><!-- 
+                     --><hr>
+                     <div><img src="./imgs/draw.png"><div>分享你的作品</div></div>
+                     <div><img src="./imgs/said.png"><div>评论你的想法</div></div>
+                     <div><img src="./imgs/fold.png"><div>收藏海量灵感</div></div>
+                     <button>登录</button>
+            </div>
+        </div>
+
+        <!-- <div class="unLogin">
+            <div class="login_btn">登录</div>
+            <button class="register_btn">注册</button>
+        </div> -->
+    </div>
+
+    <div class="slideBanner">
+        <div id="slide">
+           <div id="imgList">
+               <img src="./imgs/slide7.jpg" alt="" id="img1"><!--
+            --><img src="./imgs/slide1.jpg" alt="" id="img2"><!-- 
+            --><img src="./imgs/slide2.jpg" alt="" id="img3"><!-- 
+            --><img src="./imgs/slide3.jpg" alt="" id="img4"><!--
+            --><img src="./imgs/slide4.jpg" alt="" id="img5"><!--
+            --><img src="./imgs/slide5.jpg" alt="" id="img6"><!--
+            --><img src="./imgs/slide6.jpg" alt="" id="img7"><!--
+            --><img src="./imgs/slide7.jpg" alt="" id="img8"><!-- 
+            --><img src="./imgs/slide1.jpg" alt="" id="img9">
+           </div>
+        </div>
+
+        <div id="arrLeft"></div>
+        <div id="arrRight"></div>
+    </div>
+
+    <div class="navTop">
+        <div class="dvlogo">
+            <a href="https://www.zcool.com.cn/"><img src="./imgs/logo_1.png"  id="showLogo" alt=""></a>
+        </div>
+            <div class="navTopMenu">
+                <ul class="checkMenu">
+                    <li>关注</li>
+                    <li id="navTopAct">推荐</li>
+                    <li>首推</li>
+                    <li>榜单</li>
+                </ul>
+            </div>
+        <div id="showMenu">
+            <div class="navtop_menu">
+                <span id="find"><img src="./imgs/find.png" alt=""></span>
+            </div>
+            <div class="navtop_menu">
+                <div class="navtop_title"><span id="cloud_icon"><img src="./imgs/cloud_icon.png" alt=""></span></div>
+                <div class="navtop_panel_list cloudMenu">
+                    <ul>
+                        <li>上传作品</li>
+                        <li>写文章</li>
+                        <li>我的创作</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navtop_menu">
+                <div class="navtop_title">
+                        <div class="unLogin">
+                            <div class="login_btn">登录</div>
+                            <button class="register_btn">注册</button>
+                        </div>
+                </div>
+                <div class="top_panel_list UnLoginMenu">
+                        <div><span class="organge">登录/注册</span>后，可享受：</div><!-- 
+                         --><hr>
+                         <div><img src="./imgs/draw.png"><div>分享你的作品</div></div>
+                         <div><img src="./imgs/said.png"><div>评论你的想法</div></div>
+                         <div><img src="./imgs/fold.png"><div>收藏海量灵感</div></div>
+                         <button>登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <hr> -->
+    <div class="masterPrice">
+        <div class="picList">
+            <!--346*260  346*312 -->
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+        </div>
+        <div class="picList">
+            <!--346*260  346*312 -->
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+        </div>
+        <div class="picList">
+            <!--346*260  346*312 -->
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+        </div>
+        <div class="picList">
+            <!--346*260  346*312 -->
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+        </div>
+        <div class="picList">
+            <!--346*260  346*312 -->
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+            <div class="picItem">
+                <div class="pic">
+                    <img src="./imgs/p1.png" alt="">
+                </div>
+                <div class="textInfo"><span class="info">原创/三维风格化人物</span><span class="good"><img src="./imgs/good.png">206</span></div>
+                <div class="auther"><img src="./imgs/auther.png" alt="">Aloo</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
