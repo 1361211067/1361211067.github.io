@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.gradient {
+
+    background: red;
+    background: -webkit-linear-gradient(left top, #fe4096, #f7704e);
+    background: -o-linear-gradient(bottom right, #fe4096, #f7704e);
+    background: -moz-linear-gradient(bottom right, #fe4096, #f7704e);
+    background: linear-gradient(60deg, #fe4096, #f7704e);
+    // background-image: url(/images/networkelement.png), linear-gradient(60deg, #fe4096, #f7704e); 
+    background-size: calc(100% + 50px);
+
+}
+
+
+
+// 顶部导航栏
+.topNav {
+    background: transparent;
+
+    .navbar {
+        background-color: transparent;
+
+        .navbar-brand {
+            .logo {
+                width: 10.5em;
+                margin-top: -20px;
+            }
+            @media screen and(max-width: 767px) {
+                .logo {
+                    width: 7em;
+                    margin-top: -22px;
+                }
+            }
+        }
+        .navbar-toggler{
+            border: none;
+            i{
+                color: #fff;
+            }
+        }
+        .collapse {
+            ul {
+                width: 100%;
+                justify-content: flex-end;
+
+                li{
+                    .dropdown-menu{
+                        top: 75px;
+                    }
+                    >a {
+                        color: #fff;
+                        font-size: 17px;
+                        font-family: 'nowayregular', sans-serif;
+                        position: relative;
+                        padding: 38px 16px;
+                        text-transform: uppercase;
+                        transition: all .5s ease-in;
+    
+                        &:hover {
+                            color: #5bacd0;
+                        }
+                        
+                    }
+                }
+                
+                @media screen and(max-width: 767px) {
+                    li>a {
+                        color: #fff;
+                        // font-size: 12px;
+                        font-family: 'nowayregular', sans-serif;
+                        position: relative;
+                        padding: 0.5rem 1rem;
+                        transition: none;
+                    }
+                }
+            }
+        }
+
+    }
+}
+//第一部分
+.firstPage{
+    padding: 35px 15px 0;
+    .row{
+        // height: auto;
+        margin-bottom: 25px;
+        .imgPart{
+            .text{
+                color: #fff;
+                font-family: 'nowaybold';
+                .text-uppercase{
+                    font-size: 32px;
+                    max-width: 600px;
+                    word-wrap: break-word;
+                    text-shadow: 11px 11px 8px rgb(0 0 0 / 10%);
+                }
+                :last-child{
+                    max-width: 700px;
+                }
+            }
+            @media screen and(max-width: 767px) {
+                .text {
+                    text-align: center;
+                    margin-top: 0px !important;
+                    font-size: 18px;
+                    .text-uppercase{
+                        margin: 0 auto;
+                        max-width: 290px;
+                        font-size: 22px !important;
+                    }
+                }
+            }
+        }
+        .codePart{
+            .code{
+                box-shadow: 12px 12px 20px 11px rgb(0 0 0 / 10%);
+                background-color: #e8e8e8;
+
+                border-radius: 15px;
+                p.title{
+                    padding: 30px 20px 0;
+                    font-size: 21px;
+                    color: #4D4D4D;;
+                    text-align: center;
+                }
+                p:last-of-type{
+                    margin: 20px auto;
+                    text-align: center;
+                    max-width: 260px;
+                }
+                .form-group{
+                    margin: 25px 20px;
+                }
+                button{
+                    margin-top: 20px;
+                    color: #fff;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    padding: 0.5em;
+                    width: 100%;
+                    border-radius: 0px 0px 15px 15px;
+                    background-color: #8727e2;
+                    transition: all 0.2s ease-in;
+                    &:hover{
+                        filter:brightness(1.4);
+                    }
+                }
+            }
+        }
+    }
+}
+//右下角按钮
+.messagBtn{
+    box-shadow: 0 0 8px 4px rgb(0 0 0 / 16%);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    height: 56px;
+    width: 56px;
+    line-height: 45px;
+    i{
+       font-size: 1.5rem;
+    }
+}
+//第二部分
+.secondPage{
+    // margin-top: 20px;
+    background-color: #1b1c52;
+    .row{
+        .withe-text{
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 30px;
+            font-family: 'nowayregular', sans-serif;
+        }
+        h3{
+            margin: 30px auto;
+            font-weight: bolder;
+            font-size: 32px;
+            color: #fff;
+            line-height: 1.2;
+            font-family: 'nowaybold';
+        }
+        .icon{
+            width: 100%;
+            color: #fff;
+            img{
+                display: block;
+                // margin-left: 120px;
+                width: 8rem;
+                margin: 0 auto;
+            }
+            .icon-text{
+                margin: 0 auto;
+                // width: 210px;
+                font-size: 20px;
+                letter-spacing: 1.2px;
+                text-align: center;
+            }
+            .info-text{
+                font-family: 'nowayregular', sans-serif;
+                font-size: 15px;
+                color: #fff;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+//第三部分
+.thridPage{
+    background-color: #fff;
+    padding: 50px 0;
+    .row{
+        p.word{
+            font-size: 17px;
+            color: #336786;
+        }
+        h3.title{
+            color: #fa5c6b;
+            font-weight: bolder;
+            font-size: 33px;
+            text-align: center;
+            line-height: 1.2;
+            font-family: 'nowaybold';
+        }
+    }
+    .info-text-holder{
+        h3{
+            color: #19abf6;
+            font-size: 22px;
+            font-weight: bolder;
+            margin: 80px auto 10px;
+        }
+        p{
+            color: #336786;
+            font-size: 16px;
+            font-family: 'nowayregular';
+        }
+    }
+    .row.reverse{
+        flex-direction: row-reverse;
+    }
+}
+
+//第五部分
+.fivePage{
+    margin-bottom: 50px;
+    .row{
+        .title{
+            font-weight: bolder;
+            color: #fff;
+            font-size: 32px;
+            margin: 30px auto;
+        }
+        .cardBox{
+            padding:  30px;
+            background-color: #fff;
+            transition: all 0.3s linear;
+            &:hover{
+                transform: scale(1.025);
+            }
+            img{
+                width: 100%;
+            }
+            .card-details{
+                margin-top: 30px;
+                a{
+                    color: #337ab7;
+                }
+                color: #616b71;
+                font-size: 15px;
+            }
+            .card-info{
+                font-size: 12px;
+                margin-top: 30px;
+                .name{
+                    font-weight: bold;
+                    color: #0f9aee;
+                }
+            }
+        }
+    }
+}
+//底部
+#footer{
+    font-size: 14px;
+    background-color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #ddd;
+    .row{
+        .logo-mini{
+            width: 10em;
+            margin-top: -2em;
+        }
+        .textPart{
+            span{
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #333;
+            }
+            .social{
+                margin-top: 10px;
+                a{
+                    margin-right: 5px;
+                    background-color: #fff;
+                    padding: 4px 0 0;
+                    text-decoration: none;
+                    .bi{
+                        color: #7a8093;
+                        background-color: #fff;
+                        width: 25px;
+                        height: 25px;
+                        font-size: 18px;
+                        border-radius: 50px;
+                        text-align: center;
+                        padding-top: 4px;
+                    }
+                    &:hover .bi{
+                        color: #3b5998;
+                    }
+                }
+            }
+        }
+        i{
+            color: #999da9;
+            font-size: 18px;
+            margin-right: 7px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .phone,.email{
+            color: #0f9aee;
+            margin-bottom: 10px;
+            
+        }
+        .address{
+            color: #999da9;
+            margin-bottom: 10px;
+        }
+        a{
+            color: #337ab7;
+
+            }
+            .footer-nav {
+                font-size: 16px;
+            }
+    }
+
+}

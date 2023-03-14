@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        .score{
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+            font-weight: bolder;
+            margin: 50px auto 0;
+        }
+        .score input{
+            font-size: 25px;
+            margin: 0 auto;
+            width: 100px;
+            padding: 5px;
+        }
+        .banner{
+            background-color: #fff;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .box{
+            width: 600px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 0px;
+            top: -200px;
+        }
+        .box .row{
+            width: 608px;
+            overflow: hidden;
+        }
+        .box .row div{
+            width: 120px;
+            height: 120px;
+            border: 1px solid #000;
+            float: left;
+        }
+        .box .row div.black{
+            background-color: #000;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="score">
+        <P>SCORE:
+            <input type="text" name="" id="" disabled value="0">
+        </P>
+    </div>
+    <div class="banner">
+        <div class="box">
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector(".box");
+        var score = document.querySelector(".score p input");
+        var div = document.querySelector(".row div");
+        var divHeight = parseFloat(window.getComputedStyle(div).height);
+
+        // console.log(divHeight);
+        //速度
+        var speed = 1;
+
+        //结束开关
+        var flag = false;
+
+        //分数
+        var sum = 0;
+
+        var timer = setInterval(function(){
+            box.style.top = box.offsetTop + speed +"px";
+            // console.log(box.style.top);
+            if(parseFloat(box.style.top) >= 0){
+                // alert(1);
+                // console.log("box.children.length",box.children.length);
+                //判断box的子元素长度是否大于等于5
+                if(box.children.length >= 6){
+                    box.removeChild(box.lastElementChild);
+                }
+                //获取最后一个row
+                var lastRow = box.children[box.children.length - 1];
+                //获取最后一个row下的子元素
+                var haveclass = lastRow.children;
+                var n = '';
+                for(var j =0 ;j<haveclass.length;j++){
+                    //含有black就加进 n
+                    if(haveclass[j].className == 'black'){
+                        n += "black"
+                    }
+                }
+                //判断是否具有black
+                if(n == 'black'){
+                    alert("你漏了一个黑块，游戏结束！");
+                    clearInterval(timer);
+                    flag = true;
+                }
+                
+                //创建一个新的row
+                var newRow = document.createElement("div");
+                newRow.className = "row";
+
+                //随机整数
+                var randomNum = Math.floor(Math.random()*(5-1+1)+1);
+                for(var i=1;i<6;i++){
+                    //创建一行里的小格子
+                    var newDiv = document.createElement("div");
+                    //如果i与随机数相等就为黑块
+                    if(i == randomNum){
+                        newDiv.className = "black";
+                    }
+                    newRow.appendChild(newDiv);
+                }
+                //把创建的row加到box最顶部
+                box.insertBefore(newRow,box.children[0]);
+
+                //创建新的box的top值 加上高度，使小块无缝衔接
+                 box.style.top =  -(divHeight) +"px";
+            }
+        },15);
+
+        box.onclick = function(e){
+            if(!flag){
+                if(e.target.className == "black"){
+                    //删除被点击类名
+                    e.target.removeAttribute("class");
+                    //分数自加
+                    sum++;
+                    // console.log("分数是",score.value);
+                    //渲染分数
+                    score.value = sum;
+                    //每5个加速
+                    if(sum % 5 ==0){
+                        speed += 0.5;
+                    }
+                }else{
+                        alert("点到白块了！");
+                        clearInterval(timer);
+                        flag = true;
+                    }
+            }else{
+                alert("游戏结束，刷新重启游戏");
+            }
+        }
+    </script>
+</body>
+</html>
