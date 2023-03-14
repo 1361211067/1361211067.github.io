@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 参考： http://pal7.cubejoy.com/ -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《仙剑奇侠传七》官方网站</title>
+    <!-- 图标 -->
+    <link rel="icon" href="./imgs/favicon.ico"  type="image/x-icon">
+    <!-- 重置样式 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 导入样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <script>
+        window.onload = function(){
+            // 获取视频开始点击按钮
+            var videoPlay = document.getElementById("videoPlay");
+            // 获取视频
+            var video = document.getElementById("video");
+            // 获取视频关闭按钮
+            var close = document.getElementById("close");
+            // 获取BGM开始按钮
+            var playBgm = document.getElementById("playBgm");
+            var bgm = document.getElementById("music");
+
+            var playCv = document.getElementById("playCv");
+            var xwCv = document.getElementById("xwCv");
+
+             // 点击视频出现
+             videoPlay.onclick = function () {
+                video.style.display = 'block';
+                close.style.display = 'block';
+            }
+            // 点击关闭视频
+            close.onclick = function () {
+                video.style.display = 'none';
+                if (close.style.display != 'none') {
+                    video.pause();
+                    close.style.display = 'none';
+                }
+            }
+
+            // 点击开始播放/暂停音乐
+            playBgm.onclick = function(){
+                if(bgm.paused){
+                    bgm.play();
+                    playBgm.setAttribute("class","music play");
+                }else{
+                    bgm.pause();
+                    playBgm.setAttribute("class","music pause");
+                }
+            }
+            playCv.onclick = function(){
+                if(xwCv.paused){
+                    xwCv.play();
+                }else{
+                    xwCv.pause();
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <!-- 顶部导航栏开始 -->
+    <div class="top">
+        <div class="topBar container">
+            <a  href="#" class="logo">
+                <img src="./imgs/commonLogoS.png" alt="">
+                <span>中文游戏平台</span>
+            </a>
+            <div class="topMenu">
+                <ul>
+                    <li>
+                        <a href="#">方块平台</a>
+                    </li>
+                    <li>
+                        <a href="#">客户端</a>
+                    </li>
+                    <li>
+                        <a href="#">账号</a>
+                    </li>
+                    <li>
+                        <a href="#">游戏导航</a>
+                    </li>
+                    <div class="arr"></div>
+                    <div class="topGaemMenu">
+                        <!-- 
+                            仙剑客栈2
+                            仙剑奇侠传七
+                            只狼：影逝二度
+                            国王的恩赐2
+                            微光之镜
+                            武侠乂
+                            河洛群侠传
+                            苍龙城
+                            救赎之路
+                            与君盟
+                            侠道游歌
+                         -->
+                        <ul>
+                            <li>
+                                <a href="#">仙剑客栈2</a>
+                            </li>
+                            <li>
+                                <a href="#">仙剑奇侠传七</a>
+                            </li>
+                            <li>
+                                <a href="#">只狼：影逝二度</a>
+                            </li>
+                            <li>
+                                <a href="#">国王的恩赐2</a>
+                            </li>
+                            <li>
+                                <a href="#">微光之镜</a>
+                            </li>
+                            <li>
+                                <a href="#">武侠乂</a>
+                            </li>
+                            <li>
+                                <a href="#">河洛群侠传</a>
+                            </li>
+                            <li>
+                                <a href="#">苍龙城</a>
+                            </li>
+                            <li>
+                                <a href="#">救赎之路</a>
+                            </li>
+                            <li>
+                                <a href="#">与君盟</a>
+                            </li>
+                            <li>
+                                <a href="#">侠道游歌</a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 顶部导航栏结束 -->
+
+    <!-- 主体部分开始 -->
+    <div class="mainContainer container clearfix">
+        <!-- 右上的菜单开始 -->
+        <div class="helpMenu container">
+            <ul>
+                <li>
+                    <a href="#">官网主页</a>
+                </li>
+                <li>
+                    <a href="#">新闻中心</a>
+                </li>
+                <li>
+                    <a href="#">图像影音</a>
+                </li>
+                <li>
+                    <a href="#">游戏商城</a>
+                </li>
+                <li>
+                    <a href="#">服务帮助</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 右上的菜单结束 -->
+        <!-- 右上角的音乐按钮开始 -->
+        <div class="musicBtn">
+            <a href="javascript:;" id="playBgm" class="music pause"><img src="./imgs/mnote.png" alt=""></a>
+            <audio controls preload id="music" hidden>
+                <source src="./bgm.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <!-- 右上角的音乐按钮结束 -->
+
+        <!-- 背景部分开始 -->
+        <div class="backGround"></div>
+        <div class="bgCon container">
+            <div class="bgHero"></div>
+            <div class="innerLogo">
+                    <a href="#"><img  src="./imgs/logo.png" alt=""></a>
+                    <img id="sloganText" src="./imgs/slogan_text.png" alt="">
+                    <img id="slogan" src="./imgs/slogan.png" alt="">
+            </div>
+            <!-- 视频按键开始 -->
+            <div class="videoBar">
+                    <div class="videoNav" id="videoPlay">
+                        <div class="playVideoBg"></div>
+                        <img src="./imgs/dbx.png" id="palyBtn" alt="">
+                    </div>
+                    <div class="videoCon">
+                    <video controls="controls" preload="metadata" id="video"  src="http://video.cubejoy.com/pal7/pal7xuan1.mp4"></video>
+                    <a href="javascript:;" class="close"id="close"><!-- 
+                    --><img src="./imgs/tHide.png" alt=""></a>
+                    </div>
+                </div>
+
+            <!-- 视频按键结束 -->
+        </div>
+        <!-- 立绘前的飘带 -->
+        <div class="floatBg"></div>
+        <!-- 背景部分结束 -->
+
+        <!-- 主体游戏框 -->
+        <div class="pal7Main clearfix">
+            <div class="gameMain">
+                <div class="gameMenuBackGround">
+                    <div class="menuTop"></div>
+                    <div class="menuBottom"></div>
+                    <div class="menuCon">
+                        <!-- 表格内容开始 -->
+                        <div class="gameDivBar">
+                            <a href="#" class="gameDiv1">
+                                <h3>立即购买</h3>
+                                <p>正式购买已开放</p>
+                            </a>
+                            <a href="#" class="gameDiv2">
+                                <h3>下载激活</h3>
+                                <p>游戏安装说明</p>
+                            </a>
+                            <a href="#" class="gameDiv3">
+                                <h3>方块客户端</h3>
+                                <p>仙剑七运行必备</p>
+                            </a>
+                        </div>
+                        <div class="gameList">
+                            <!-- 
+                                操作说明
+                                游戏FAQ
+                                运行环境
+                                手柄说明
+                                客服帮助
+                                实体版本
+                                购买说明
+                                退货政策
+                                武器外观
+                                预售专题
+                             -->
+                            <ul>
+                                <li>
+                                    <a href="">操作说明</a>
+                                </li>
+                                <li>
+                                    <a href="">游戏FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="">运行环境</a>
+                                </li>
+                                <li>
+                                    <a href="">手柄说明</a>
+                                </li>
+                                <li>
+                                    <a href="">客服帮助</a>
+                                </li>
+                                <li>
+                                    <a href="">实体版本</a>
+                                </li>
+                                <li>
+                                    <a href="">购买说明</a>
+                                </li>
+                                <li>
+                                    <a href="">退货政策</a>
+                                </li>
+                                <li>
+                                    <a href="">武器外观</a>
+                                </li>
+                                <li>
+                                    <a href="">预售专题</a>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <!-- 轮播图开始 -->
+                        <div class="carouselBar">
+                            <a href="javascript:;" class="active"><img src="./imgs/p1.jpg" alt=""></a>
+                            <a href="javascript:;"><img src="./imgs/p2.jpg" alt=""></a>
+                            <a href="javascript:;"><img src="./imgs/p5.jpg" alt=""></a>
+                            <a href="javascript:;"><img src="./imgs/p3.jpg" alt=""></a>
+                            <a href="javascript:;" id="arrL"></a>
+                            <a href="javascript:;" id="arrR"></a>
+                            <div class="dotNav">
+                                <a href="javascript:;" class="clicked"></a>
+                                <a href="javascript:;"></a>
+                                <a href="javascript:;"></a>
+                                <a href="javascript:;"></a>
+                            </div>
+                        </div>
+                        <!-- 轮播图结束 -->
+
+                         <!-- 新闻栏目开始 -->
+                         <div class="newsNav">
+                             <div class="newsNavTop">
+                                 <h3>新闻公告</h3>
+                                 <a class="more" href="#">╳</a>
+                                </div>
+                                <ul>
+                                    <li class="clearfix">
+                                        <a href="#">时隔21年再发新作《仙剑客栈2》今日上市</a><p>07-08</p>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#">《仙剑客栈2》梦回余杭典藏版正式发售 限量2000套</a><p>07-06</p>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#">《仙剑七》6月28日版本（1.1.6）更新公告</a><p>06-28</p>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#">《仙剑七》5月26日版本（1.1.5）更新公告</a><p>05-26</p>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="#">关于《仙剑七》典藏版发货公告</a><p>04-22</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 新闻栏目结束 -->
+                        <!-- 表格内容结束 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 福袋抽奖模块开始 -->
+        <div class="luckBagNav">
+            <div class="conTitle">
+                <img src="./imgs/title4.png" alt="">
+            </div>
+            <div class="bagConNav">
+                <div class="bagCon">
+                    <p>购买实体版用户凭福袋卡即可参与抽奖</p>
+                    <div class="bagImg">
+                        <img src="./imgs/pre-sale.png" alt="">
+                        <a href="#" id="bagBtn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 福袋抽奖模块结束 -->
+
+        <!-- 人物介绍模块开始 -->
+        <div class="wrapperMode">
+            <div class="heroInfoBar">
+                <div class="heroTitleBar">
+                    <img src="./imgs/title.png" alt="">
+                </div>
+                <div class="heroName">
+                    <img src="./imgs/xw_name.png" alt="">
+                </div>
+                <div class="heroInfo">
+                    <img src="./imgs/xw_info.png" alt="">
+                </div>
+                <div class="heroCvBtn">
+                    <a href="javascript:;" id="playCv">
+                    <audio src="./xw.wav" controls preload="auto" id="xwCv" hidden></audio>
+                    <div></div>
+                    </a>
+                </div>
+                <div class="heroImg">
+                    <img id="xwInfo" src="./imgs/xw_info2.png" alt="">
+                    <img id="xwImg" src="./imgs/xw.png" alt="">
+                </div>
+                <div class="slideHeroNav">
+                    <div id="ygsHead"></div>
+                    <div id="xwHead" class="active"></div>
+                    <div id="bmqHead"></div>
+                    <div id="syHead"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 人物介绍模块结束 -->
+
+        <!-- 模块3（图片、配置）开始 -->
+        <div class="wrapperMode1">
+            <div class="picBar">
+                <a href="http://pal7.cubejoy.com/videoImg.html" class="picTitleBar">
+                    <img src="./imgs/title2.png" alt=""></a>
+            </div>
+                <div class="picNav">
+                    <a id="prevBtn" href="#">
+                        <img  src="./imgs/prev.png" alt="">
+                    </a>
+                    <a id="nextBtn" href="#">
+                        <img  src="./imgs/next.png" alt="">
+                    </a>
+                    <div class="picCon">
+                        <div class="picItem">
+                            <img src="./imgs/pImg19.png" alt="">
+                            <div class="filter"><img src="./imgs/imgBig.png" alt=""></div>
+                            <div><a href="#"><span></span>电脑壁纸下载</a>
+                                <a href="#"><span></span>手机壁纸下载</a>
+                            </div>
+                        </div>
+                        <div class="picItem">
+                            <img src="./imgs/pImg20.png" alt="">
+                            <div class="filter"><img src="./imgs/imgBig.png" alt=""></div>
+                            <div><a href="#"><span></span>电脑壁纸下载</a>
+                                <a href="#"><span></span>手机壁纸下载</a>
+                            </div>
+                        </div>
+                        <div class="picItem">
+                            <img src="./imgs/pImg9.png" alt="">
+                            <div class="filter"><img src="./imgs/imgBig.png" alt=""></div>
+                            <div><a href="#"><span></span>电脑壁纸下载</a>
+                                <a href="#"><span></span>手机壁纸下载</a>
+                            </div>
+                        </div>
+                        <div class="picItem">
+                            <img src="./imgs/pImg14.png" alt="">
+                            <div class="filter"><img src="./imgs/imgBig.png" alt=""></div>
+                            <div><a href="#"><span></span>电脑壁纸下载</a>
+                                <a href="#"><span></span>手机壁纸下载</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 配置图 -->
+                <div class="equipTitle">
+                    <img src="./imgs/title3.png" alt="">
+                </div>
+                <div class="dispose">
+                    <img src="./imgs/dispose.png" alt="">
+                </div>
+        </div>
+        <!-- 模块3（图片、配置）结束 -->
+
+        <!-- 模块4（相关媒体、仙剑系列图）开始 -->
+        <!-- 背景 -->
+        <div class="wrapperMode2"></div>
+        <!-- 相关媒体开始 -->
+        <div class="medioCon">
+            <div class="medioBar">
+                <div class="mediaNav">
+                    <div class="mediaLeft">
+                        <a id="weixin" href="javascript:;">
+                            <img src="./imgs/weixin.png" alt="">
+                            <span>官方微信</span>
+                        </a>
+                        <div class="weixinCode">
+                            <img src="./imgs/code1.png" alt="">
+                        </div>
+                        <a id="weibo" href="javascript:;">
+                            <img src="./imgs/weibo.png" alt="">
+                            <span>官方微博</span>
+                        </a>
+                        <div class="weiboCode">
+                            <img src="./imgs/code2.png" alt="">
+                        </div>
+                        <a href="http://tieba.baidu.com/f?fr=ala0&kw=%CF%C9%BD%A3%C6%E6%CF%C0%B4%AB&tpl=5">
+                            <img src="./imgs/baidu.png" alt="">
+                            <span>百度贴吧</span>
+                        </a>
+                        <a href="http://space.bilibili.com/11465660?from=search&seid=18409605635461088479">
+                            <img src="./imgs/bili.png" alt="">
+                            <span>bilibili</span>
+                        </a>
+                    </div>
+                    <div class="mediaRight">
+                        <div class="row">
+                            <a href="#">
+                                <img src="./imgs/media5.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media6.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media7.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media17.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="row">
+                            <a href="#">
+                                <img src="./imgs/media19.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media20.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media22.jpg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="./imgs/media24.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 相关媒体结束 -->
+
+        <!-- 仙剑系列开始 -->
+        <div class="plAllNar">
+            <div class="plAllBar">
+                <div class="plAllList">
+                    <a class="palsGame pal1" href="#">
+                        <img src="./imgs/x1.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal2" href="#">
+                        <img src="./imgs/x2.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传二》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal3" href="#">
+                        <img src="./imgs/x3.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传三》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal4" href="#">
+                        <img src="./imgs/x4.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传三外传》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal5" href="#">
+                        <img src="./imgs/x5.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传四》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal6" href="#">
+                        <img src="./imgs/x7.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传五》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal7" href="#">
+                        <img src="./imgs/x6.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传五前传》</span>
+                        </div>
+                    </a>
+                    <a class="palsGame pal8" href="#">
+                        <img src="./imgs/x8.jpg" alt="">
+                        <div class="palsName">
+                            <span>《仙剑奇侠传六》</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 仙剑系列结束 -->
+    </div>
+    <!-- 主体部分结束 -->
+
+    <!-- 底部栏开始 -->
+    <div class="footerNav">
+        <div class="footerBar container">
+            <!-- 左侧超链接图标 -->
+            <div class="footerLogoBar">
+                <a href="#">
+                    <img src="./imgs/footerLogo.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./imgs/ZSYlogo.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./imgs/FKlogo1.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="./imgs/WXlogo.png" alt="">
+                </a>
+            </div> 
+            <!-- 右侧版权 -->
+            <div class="copyBar">
+                <p>
+                    <a href="#">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#">用户协议</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#">客服中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#">开发者</a>
+                </p>
+                <p>
+                    Copyright © 2023 WanXin Culture Technology Co., Ltd. All rights reserved. 皖网文 [2020] 0583-033号 ICP备：皖B2-20170065-4
+                </p>
+                <p>
+                    抵制不良游戏　拒绝盗版游戏　注意自我保护　谨防受骗上当　适度游戏益脑　沉迷游戏伤身　合理安排时间　享受健康生活
+                </p>
+            </div>       
+        </div>
+    </div>
+    <!-- 底部栏结束 -->
+
+</body>
+</html>
