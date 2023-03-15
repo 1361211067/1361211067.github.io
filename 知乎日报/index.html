@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知乎日报</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">好问题广场</h2>
+        <div class="box">
+            <div class="loginDiv">
+                <img src="./img/loginBackgroundImg.png" alt="">
+                <div class="info">
+                    <p>登录一下</p>
+                    <p>更多精彩内容等你发现</p>
+                    <button>登录</button>
+                </div>
+            </div>
+            <div class="News">
+                <h2 class="title">近期热点</h2>
+                <hr class="hr">
+                <ul class="newsList">
+                    <!-- <li>
+                        <p><b><a href="">重庆一火锅店因 16 支未吃完的雪糕被开罚单，该事件能起到什么作用？</a></b></p>
+                        <span>xxx 万浏览 • xxxx 关注 • xxx 回答</span>
+                    </li> -->
+                </ul>
+                <a class="more" href="">查看全部热点问题 ></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var objUl = document.querySelector('.newsList');
+
+        getJSON("https://apis.netstart.cn/zhihudaily/stories/latest", (res) => {
+
+            let { a, stories,top_stories:authors} = res;
+            // console.log(stories);
+
+            var str = "";
+            stories.forEach((element,index) => {
+                // console.log(element.title);
+                str+=`
+                <li>
+                    <p><b><a href="${element.url}">${element.title}</a></b></p>
+                    <span> ${element.hint}</span>
+                </li>
+                `;
+            });
+
+            objUl.innerHTML = str;
+
+        });
+
+        function getJSON(url, success) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            let str = JSON.parse(xhr.responseText);
+                            resolve(str);
+                            success(str);
+                        } else {
+                            reject(xhr.statusText);
+                        }
+                    }
+                };
+                xhr.open("GET", url);
+                xhr.send();
+            });
+        }
+
+    </script>
+</body>
+
+</html>
