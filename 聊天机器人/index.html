@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax实现聊天机器人</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.6.3.min.js"></script>
+</head>
+
+<body>
+    <div class="phone">
+        <span class="times">00:00</span>
+        <div class="chat">
+            <div class="showNav">
+                <div class="aisSayNav">
+                    <img src="https://img.api.aa1.cn/2022/10/24/d08a776db3131.webp" alt="">
+                    <span class="speak">
+                        这里是小爱，我可以陪你聊天，帮你查天气，给你当翻译(＾Ｕ＾)ノ~ＹＯ
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="showNav">
+                <div class="userSayNav">
+                    <img src="imgs/man.jpg" alt="">
+                    <span class="speak">
+                    </span>
+                </div>
+            </div> -->
+        </div>
+        <div class="bottomNav">
+            <input type="text" name="" id="input">
+            <button id="sumbit">send</button>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            //获取时间
+            var date = new Date();
+            // console.log();
+            var times = $('.times');
+            //.toString().padStart(2,'0') ES6字符串新增补全方法，当不足两位时补0
+            times.text(`${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`);
+
+            //获取输入
+            var text = $("#input");
+            //聊天框
+            var chatMenu = $('.chat');
+            //节流阀
+            var waiting = false;
+
+            
+            // 封装自动滚到底部
+            function move() {
+                $(window)[0].scroll({
+                    top: $('.bottomNav').offset().top,
+                    behavior: "smooth"
+                });
+            }
+
+
+            //回车
+            $("#input").on('keyup', (e) => {
+                if (e.keyCode == 13) {
+                    $("#sumbit").click();
+                }
+            });
+            $("#sumbit").on("click", () => {
+                if (waiting) {
+                    return;
+                }
+                if (text.val().trim().length != 0) {
+                    let msg = text.val();
+                    text.val("");
+                    let newDiv = `<div class="showNav">
+                        <div class="userSayNav">
+                            <img src="imgs/man.jpg" alt="">
+                            <span class="speak">
+                                ${msg}
+                            </span>
+                        </div>
+                    </div>`;
+                    chatMenu.append(newDiv);
+                    waiting = false;
+                    move();
+                    $.get('https://v.api.aa1.cn/api/api-xiaoai/talk.php', {
+                        //请求参数：
+                        msg,
+                        type: 'text'
+                    }, (res) => {
+                        console.log(res);
+                        if (res.trim().length == 0) {
+                            res = "小爱不知道你在说什么";
+                        }
+                        let newDiv = `<div class="showNav">
+                        <div class="aisSayNav">
+                            <img src="https://img.api.aa1.cn/2022/10/24/d08a776db3131.webp" alt="">
+                            <span class="speak">
+                                ${res}
+                            </span>
+                        </div>
+                    </div>`;
+                        chatMenu.append(newDiv);
+                        move();
+                        waiting = false;
+                    });
+                }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
