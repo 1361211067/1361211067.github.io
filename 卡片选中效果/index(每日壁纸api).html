@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡片选中效果</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="card">
+            <div class="img" style="background-image: url(./imgs/img.jpg);">
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var card = document.querySelector(".card");
+            var cardWidth = parseInt(window.getComputedStyle(card).width);
+            var cardHeight = parseInt(window.getComputedStyle(card).height);
+            const imgs = document.getElementsByClassName('img');
+            const img = imgs[0];
+
+            //移入事件
+            card.addEventListener('mousemove', (e) => {
+                var cardLeft = e.offsetX;
+                var cardTop = e.offsetY;
+                const px = ((cardLeft - (cardWidth / 2)) / 3) / 3;
+                const py = (-(cardTop - (cardHeight / 2)) / 3) / 3;
+
+                setTransform(e.target, px, py);
+            });
+
+            //归位
+            card.addEventListener('mouseleave', (e) => {
+                if (!img) {
+                    return;
+                }
+
+
+                img.style.setProperty('transform', `translateX(0) translateY(0)`);
+                e.target.style.setProperty('transform', `rotateX(0) rotateY(0)`);
+            });
+            // 封装偏移函数
+            function setTransform(target, px, py) {
+                if (!target) {
+                    return;
+                }
+
+                if (!img) {
+                    return;
+                }
+                let moveX = (80 - (px / 4).toFixed(2));
+                let moveY = (50 - (py / 4).toFixed(2));
+
+                img.style.setProperty('transform', `translateX(${moveX}) translateY(${moveY})`);
+                target.style.setProperty('transform', `rotateX(${py.toFixed(2)}deg) rotateY(${px.toFixed(2)}deg)`);
+            }
+            var imgBackImg = img.style.backgroundImage;
+            // var i = 0;
+            var arr = ['美女','爱情','风景','清新','动漫','明星','萌宠','游戏','汽车','时尚','日历','影视','军事','体育','萌娃','格言']
+            const max = arr.length-1;
+            // console.log();
+            // ajax实现切换背景图
+            var xhr = new XMLHttpRequest();
+            // //定时器切换图片
+            var time = setInterval(() => {
+            let ranomNum = Math.floor(Math.random()*(max +1));
+            xhr.open('GET', `https://v.api.aa1.cn/api/bz-v2/?msg=${arr[ranomNum]}`);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var res = JSON.parse(xhr.responseText);
+                    let { a,b,pctu_url} = res;
+                    // console.log(pctu_url);
+                    img.style.backgroundImage = `url(${pctu_url})`;
+                    // console.log("=>",data[0].url );
+                } else {
+                    return;
+                }
+            }
+        },10000);
+    }
+    </script>
+</body>
+
+</html>
