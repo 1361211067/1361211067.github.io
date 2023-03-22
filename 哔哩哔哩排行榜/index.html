@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩排行榜</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.6.3.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <a href="">综合热门</a>
+            <a href="">每周必看</a>
+            <a href="">入站必刷</a>
+            <a class="active" href="">排行榜</a>
+            <a href="">全站音乐榜</a>
+        </div>
+        <ul class="typeList clearfix">
+        </ul>
+        <section class="videoList">
+           
+        </section>
+    </div>
+    <script src="./js/typeList.js"></script>
+    <script>
+        let str = ``;
+        //渲染分类
+        typeList.forEach((item) => {
+            if (item.id == 0) {
+                str += `<li>
+                <a class="active" href="">${item.title}</a>
+            </li>`;
+            } else {
+                str += `<li>
+                <a href="">${item.title}</a>
+            </li>`;
+            }
+        });
+        $('.typeList').html(str);
+
+        var $videoList = $(".videoList");
+
+        //获取排行榜数据
+        $.ajax({
+            type: "GET",
+            url: "https://v.api.aa1.cn/api/bilibili-rs/",
+            success: function (res) {
+                console.log("请求成功");
+                console.log("res=>", res);
+                let {a,data} = res;
+                console.log(data);
+                var newStr = '';
+                data.map((item) => {
+                    newStr+=`
+                    <div class="videoItem">
+                <img src="https://img1.baidu.com/it/u=2393231733,3351361657&fm=253&fmt=auto&app=138&f=GIF?w=640&h=240" alt="">
+                <div class="info">
+                    <a href="${item.link}" class="title">${item.title}</a>
+                    <div class="up">
+                        <a href="">我也不知道是哪个up主</a>
+                        <p><span>${item.heat}</span></p>
+                    </div>
+                </div>
+            </div>`
+            $videoList.html(newStr);
+                });
+            },
+            error: function (err) {
+                // 如果网络断开或者http响应状态码为200,那么将认为是请求失败
+                console.log("请求失败");
+                console.log("err=>", err);
+            }
+        });
+
+
+        // $.ajax({
+        //     type: "GET",
+            
+        //     url: "https://apis.jxcxin.cn/api/bilihot",
+        //     success: function (res) {
+        //         console.log("success回调函数");
+        //         console.log("res=>", res);
+        //     },
+        //     // 指定发送的请求改为jsonp请求
+        //     dataType: "jsonp",
+        //     // 修改callback名称
+        //     jsonp: "callback",
+        //     // 修改callback对应的函数名名称
+        //     jsonpCallback: "fn"
+        // });
+
+        // // 定义一个fn函数
+        // function fn(data) {
+        //     console.log("我是fn函数");
+        //     console.log("data=>", data);
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
