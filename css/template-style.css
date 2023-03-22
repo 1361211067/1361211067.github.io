@@ -33,6 +33,69 @@ a.color-btn:hover, form.customform button.color-btn:hover {
 	border: 1px solid #3399FF;
 	color: #3399FF;
 }
+#chatDiv{
+	z-index: 4;
+	position: fixed;
+	right: 0.5vw;
+	top: 78vh;
+	width: 150px;
+	height: 100px;
+	display: flex;
+	flex-direction: column-reverse;
+}
+#chatDiv .chatNav{
+	border: 2px solid #a5917f;
+	border-radius: 5px;
+	padding: 4px;
+	height: 90px;
+	min-height: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	/* 这里是超出几行省略 */
+	-webkit-line-clamp: 5;
+	background:linear-gradient(#edecef,#fbf0b9);
+	color: #806c5a;
+	font-size: 12px;
+	position: relative;
+	transition: all 10s linear;
+	display: none;
+}
+#chatDiv::after{
+	content: '';
+	position: absolute;
+	top: -3px;
+    left: 55px;
+	display: block;
+	border: 8px solid transparent;
+	border-top-color:#fbf0b9;
+	display: none;
+	transition: all 10s linear;
+}
+#chatDiv::before{
+	content: '';
+	position: absolute;
+	top: -3px;
+    left: 55px;
+	display: block;
+	border: 10px solid transparent;
+	border-top-color:#a5917f;
+	display: none;
+	transition: all 10s linear;
+}
+#chatDiv img{
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+#chatDiv:hover .chatNav{
+	display: -webkit-box;
+}
+#chatDiv:hover::after,#chatDiv:hover::before{
+	display:  block;
+}
 #topbar {
 	background: none repeat scroll 0 0 #012232;
 	border-bottom: 1px solid #001925;
@@ -68,7 +131,7 @@ nav {
 }
 header {
 	border-bottom: 4px solid rgba(0, 40, 58, 0.53);
-	position: fixed;
+	position:absolute;
 	width: 100%;
 	z-index: 10;
 }
@@ -173,37 +236,6 @@ p.logo strong {
 	color: #6c7c84;
 	font-size: 0.85em;
 }
-#features {
-	background: none repeat scroll 0 0 #fff;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-	padding: 6em 2em;
-	position: relative;
-	text-align: center;
-	z-index: 2;
-}
-#features i {
-	background: none repeat scroll 0 0 #3399FF;
-	border-radius: 100px;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3) inset;
-	color: #fff;
-	display: inline-block;
-	font-size: 2em;
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
-	width: 100px;
-}
-#features h2 {
-	font-size: 1em;
-	font-weight: 600;
-	margin: 1.25em 0;
-	text-transform: uppercase;
-}
-#features p {
-	color: #777;
-	font-size: 0.85em;
-	line-height: 1.5em;
-}
 #about-us {
 	background: none repeat scroll 0 0 #003399;
 	clear: both;
@@ -238,33 +270,6 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
   max-width: none;
   min-width: 100%;
   width: auto;
-}
-article p, article li {
-	color: #fff;
-	font-size: 0.85em;
-	opacity: 0.7;
-}
-article ul {
-	padding: 1.25em 0;
-}
-article ul li {
-	list-style-type: none;
-	margin: 0.625em 0;
-	padding: 0 0 0 1em;
-}
-article ul li:before {
-	background: #003399 none repeat scroll 0 0;
-	color: #fff;
-	content: "\f006";
-	display: inline-block;
-	font-family: "mfg";
-	font-size: 0.8em;
-	height: 20px;
-	line-height: 20px;
-	margin-left: -1em;
-	margin-right: 0.625em;
-	text-align: center;
-	width: 20px;
 }
 .about-us-icons i {
 	border: 2px solid #3399FF;
@@ -318,6 +323,7 @@ h2.section-title {
 	height: 100%;
 	position: relative;
 }
+
 .our-work-text {
 	background: #003399 none repeat scroll 0 0;
 	bottom: 0;
@@ -366,134 +372,6 @@ a.tab-label, a.tab-label:link, a.tab-label:visited {
 a.tab-label:hover, a.tab-label.active-btn {
 	background: #3399FF;
 	color: #fff;
-}
-#services {
-	background: #368cbf none repeat scroll 0 0;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-	padding: 6em 2em;
-}
-#services h2 {
-	color: #fff;
-	margin: 0 0 1.25em;
-}
-#services h2.section-title:after {
-	background: #fff none repeat scroll 0 0;
-}
-#services i {
-	background: none repeat scroll 0 0 #fff;
-	border-radius: 80px;
-	color: #3399FF;
-	display: block;
-	float: left;
-	font-size: 1.8em;
-	height: 80px;
-	line-height: 80px;
-	margin-right: 0.625em;
-	text-align: center;
-	width: 80px;
-}
-.service-text {
-	display: table;
-	position: relative;
-}
-#services h3 {
-	color: #fff;
-	font-size: 1em;
-	font-weight: 700;
-	text-transform: uppercase;
-}
-#services p {
-	color: #fff;
-	font-size: 0.8em;
-}
-#latest-news {
-	background: #f3f3f3 none repeat scroll 0 0;
-	box-shadow: 0px -10px 9px -11px rgba(0, 0, 0, 0.5);
-	padding: 6em 2em;
-	position: relative;
-	z-index: 3;
-}
-img.img-circle{
-	border-radius: 50%;
-}
-.news-date {
-	background: #3399FF none repeat scroll 0 0;
-	clear: both;
-	color: #fff;
-	display: block;
-	float: none;
-	height: 130px;
-	padding: 0.625em 0;
-	text-align: center;
-	width: 100%;
-}
-.day {
-	font-size: 2.5em;
-	font-weight: 700;
-}
-.month, .year {
-	font-size: 0.85em;
-}
-.news-text {
-	background: #fff none repeat scroll 0 0;
-	border-bottom: 1px solid #e0e0e0;
-	border-right: 1px solid #e0e0e0;
-	border-top: 1px solid #e0e0e0;
-	height: 130px;
-	padding: 0.625em 1.25em;
-}
-.news-text p {
-	color: #777;
-	font-size: 0.85em;
-}
-#contact {
-	background: none repeat scroll 0 0 #fff;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-	padding: 6em 2em;
-	position: relative;
-	z-index: 2;
-}
-#contact input, #contact textarea {
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-	border-radius: 3px;
-}
-form.customform button.color-btn {
-	height: auto;
-	margin-top: 0;
-}
-#contact h2 {
-	margin: 0 0 1.25em;
-}
-#contact h3 {
-	color: #3399FF;
-	font-size: 1em;
-	font-weight: 700;
-	margin: 0 0 0.625em;
-	text-transform: uppercase;
-}
-#contact p {
-	font-size: 0.85em;
-	font-style: normal;
-	line-height: 2em;
-}
-#contact p strong {
-	font-weight: 700;
-}
-#contact i {
-	background: #e0e0e0 none repeat scroll 0 0;
-	border-radius: 30px;
-	color: #567de1;
-	display: inline-block;
-	line-height: 26px;
-	margin: 0.625em;
-	text-align: center;
-	width: 26px;
-}
-#map-block {
-  filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="g"><feColorMatrix type="matrix" values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/></filter></svg>#g');
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);    
-  filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1);
 }
 footer {
 	background: none repeat scroll 0 0 #001847;
